@@ -1,0 +1,47 @@
+.Image_wrapper {
+    position: relative;
+}
+.Image_overlay_preview {
+    z-index: 10;
+    background-color: transparent;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.Image_overlay {
+    z-index: 10;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.Canvas_overlay{
+    z-index: 20;
+    position: relative;
+}
+
+.Scene_overlay {
+    z-index: 5;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.Scene_overlay_faded{
+    z-index: 5;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    opacity: 40%;
+}
+
+.Scene_background {
+    z-index: 1;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.Image_hidden{
+    display: none;
+}

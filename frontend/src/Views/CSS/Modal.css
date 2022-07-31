@@ -1,0 +1,27 @@
+.modal-header{
+    border-bottom: slategrey solid 1px;
+    font-size: 20px;
+}
+
+.modal-footer{
+    border-top: slategrey solid 1px;
+    text-align: right;
+}
+
+.modal-body{
+    padding: 20px;
+}
+
+.modal-btn{
+    background: cadetblue;
+    border: darkslategrey solid 1px;
+    border-radius: 3px;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 15px;
+    text-decoration: none;
+    text-align: center;
+    min-width: 60px;
+    position: relative;    
+  }

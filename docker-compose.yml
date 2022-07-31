@@ -1,0 +1,17 @@
+version: 'v3'
+
+services:
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: zI8eiI4QxfX9
+    ports:
+      - 5432:5432
+
+  database-admin:
+    image: adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: database
+    ports:
+      - 8080:8080

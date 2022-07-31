@@ -1,0 +1,11 @@
+**/.vs
+**/.vscode
+**/*.db
+backend/backend/skinstore
+**/node_modules
+.dockerignore
+Dockerfile
+Dockerfile.prod
+/bin
+/obj
+/skinstore

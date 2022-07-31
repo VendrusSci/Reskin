@@ -1,0 +1,73 @@
+import React, { useState, useEffect } from 'react';
+import mergeImages from 'merge-images';
+import './CSS/Skins.css';
+import './CSS/Image.css';
+
+export function SkinPreviewDisplay(props){
+    const [skinImg, setSkinImg] = useState();
+    const [sceneImg, setSceneImg] = useState();
+    const [sceneBgPath, setSceneBgPath] = useState(undefined);
+    const [sceneStyle, setSceneStyle] = useState("Scene_overlay");
+    const imageRef = React.useRef(null);
+
+    useEffect(() => {
+        var skinUrl, dragonUrl
+
+        skinUrl = URL.createObjectURL(props.skinFile);
+        if(!props.dragonFile)
+            dragonUrl = URL.createObjectURL(props.baseFile);
+        else
+            dragonUrl = URL.createObjectURL(props.dragonFile);
+        
+        if(props.apparelFile){
+            var apparelUrl = URL.createObjectURL(props.apparelFile);
+            mergeImages([dragonUrl, skinUrl, apparelUrl])
+                .then((img) => setSkinImg(img)); 
+        }
+        else{
+          mergeImages([dragonUrl, skinUrl])
+                .then((img) => {
+                    setSkinImg(img);
+                  }); 
+        }
+
+        // free memory when ever this component is unmounted
+        return () => {
+          URL.revokeObjectURL(skinUrl);
+          URL.revokeObjectURL(dragonUrl);
+          URL.revokeObjectURL(apparelUrl);
+        }
+      }, [props.baseFile, props.skinFile, props.dragonFile, props.apparelFile, props.pose, props.breed]);
+    
+    useEffect(() => {
+      if(props.sceneFile){
+        setSceneBgPath('/scene_bg.png');
+        setSceneImg(URL.createObjectURL(props.sceneFile));
+      }
+      else{
+        setSceneBgPath(undefined);
+        setSceneImg(undefined);
+      }
+
+      if(props.isOpaque){
+        setSceneStyle('Scene_overlay');
+      }
+      else{
+        setSceneStyle('Scene_overlay_faded')
+      }
+
+      return () => {
+        URL.revokeObjectURL(props.sceneFile);
+      }
+    }, [props.sceneFile, props.isOpaque]);
+
+    return(
+        <div className='Skin-images'>
+            <div className='Image_wrapper container'>
+              <img className='Image_overlay_preview' id='skinImage' alt="" ref={imageRef} src={skinImg}></img>
+              <img className={sceneStyle} id='sceneImage' alt="" src={sceneImg}></img>
+              <img className='Scene_background' id='sceneBackground' alt="" src={sceneBgPath}></img>
+            </div>
+        </div>
+      );
+}

@@ -1,0 +1,157 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: reskin
+  namespace: olivia
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    ingress.kubernetes.io/ssl-host: reskin.vendrus.teamfrag.net
+    ingress.kubernetes.io/ssl-redirect: 'true'
+    ingress.kubernetes.io/ssl-temporary-redirect: 'true'
+    kubernetes.io/ingress.allow-http: 'false'
+spec:
+  tls:
+    - hosts:
+        - reskin.vendrus.teamfrag.net
+      secretName: reskin-tls
+  rules:
+    - host: reskin.vendrus.teamfrag.net
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: reskin
+              servicePort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reskin
+  namespace: olivia
+  labels:
+    app.kubernetes.io/name: reskin
+    app.kubernetes.io/component: backend
+spec:
+  ports:
+    - port: 80
+      name: http
+  selector:
+    app.kubernetes.io/name: reskin
+    app.kubernetes.io/component: backend
+---
+apiVersion: v1
+kind: StatefulSet
+metadata:
+  name: reskin
+  namespace: olivia
+  labels:
+    app.kubernetes.io/name: reskin
+    app.kubernetes.io/component: backend
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: reskin
+      app.kubernetes.io/component: backend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: reskin
+        app.kubernetes.io/component: backend
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/VendrusSci/Reskin
+          env:
+            IMAGESTORE: /image-storage
+            CONNECTIONSTRINGS__TOOLSDB:
+              valueFrom:
+                secretRef:
+                  name: reskin-secrets
+                  key: db-connection-string
+          ports:
+            - containerPort: 80
+              name: http
+          volumeMounts:
+            name: image-storage
+            mountPath: /image-storage
+  volumeClaimTemplates:
+    - metadata:
+        name: image-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "slow"
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql
+  namespace: olivia
+  labels:
+    app.kubernetes.io/name: reskin
+    app.kubernetes.io/component: database
+spec:
+  ports:
+    - port: 5432
+      name: postgresql
+  selector:
+    app.kubernetes.io/name: reskin
+    app.kubernetes.io/component: database
+---
+apiVersion: v1
+kind: StatefulSet
+metadata:
+  name: postgresql
+  namespace: olivia
+  labels:
+    app.kubernetes.io/name: reskin
+    app.kubernetes.io/component: database
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: reskin
+      app.kubernetes.io/component: database
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: reskin
+        app.kubernetes.io/component: database
+    spec:
+      containers:
+        - name: backend
+          image: postgresql:14.4
+          env:
+            POSTGRES_USER:
+              valueFrom:
+                secretRef:
+                  name: reskin-secrets
+                  key: default-db-user
+            POSTGRES_PASSWORD:
+              valueFrom:
+                secretRef:
+                  name: reskin-secrets
+                  key: default-db-password
+            POSTGRES_DB:
+              valueFrom:
+                secretRef:
+                  name: reskin-secrets
+                  key: default-db-name
+          ports:
+            - containerPort: 80
+              name: http
+          volumeMounts:
+            name: data
+            mountPath: /var/lib/postgresql/data
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "slow"
+        resources:
+          requests:
+            storage: 512Mi
+---

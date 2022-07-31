@@ -1,0 +1,75 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.App-body {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+}
+
+.App-footer{
+  background-color: #282c34;
+  font-size: 14px;
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-title{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body{
+  background-color: #282c34;
+}
+
+select{
+  text-align: right;
+}
+
+.Menu{
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+}
+.Menu_button{
+  width: 150px;
+  height: 30px;
+  font-size: 16px;
+  background-color: cadetblue;
+  color: white;
+  border-top: white solid 2px;
+  border-bottom: white solid 2px;
+  border-left: white solid 1px;
+  border-right: white solid 1px;
+}
+
+.About_text{
+  font-size: 16px;
+  color: white;
+  max-width: 1000px;
+}
+.About_body{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

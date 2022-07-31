@@ -1,0 +1,85 @@
+export function SceneDropdown(props){
+    return(
+        <select className='Skin-dropdown' value={props.scene} onChange={(e)=>{props.onSceneChange(e.target.value)}}>
+            <option value="0">None</option>
+            <optgroup label="Default">
+                <option value="9">Arcane</option>
+                <option value="1">Earth</option>
+                <option value="11">Fire</option>
+                <option value="6">Ice</option>
+                <option value="8">Light</option>
+                <option value="5">Lightning</option>
+                <option value="10">Nature</option>
+                <option value="2">Plague</option>
+                <option value="7">Shadow</option>
+                <option value="4">Water</option>
+                <option value="3">Wind</option>
+            </optgroup>
+            
+            <optgroup label="Elemental Festival">
+                <option value="36048">Arcanist's Domain</option>
+                <option value="36759">Earthshaker's Domain</option> 
+                <option value="35702">Flamecaller's Domain</option>
+                <option value="39569">Gladekeeper's Domain</option>
+                <option value="37882">Icewarden's Domain</option>
+                <option value="35018">Lightweaver's Domain</option>
+                <option value="36376">Plaguebringer's Domain</option>
+                <option value="38411">Shadowbinder's Domain</option>
+                <option value="35033">Stormcatcher's Domain</option>
+                <option value="39215">Tidelord's Domain</option>
+                <option value="38799">Windsinger's Domain</option>
+            </optgroup>
+
+            <optgroup label="Coliseum Venue">
+                <option value="39684">Arena</option>
+                <option value="39686">Blooming Grove</option>
+                <option value="37028">Golem Workshop</option>
+                <option value="44049">Kelp Beds</option>
+                <option value="41976">Mire</option>
+                <option value="39685">Sandswept Delta</option>
+                <option value="39073">Training Fields</option>
+                <option value="39683">Waterway</option>
+            </optgroup>
+
+            <optgroup label="Event">
+                <option value="39745">8th Anniversary</option>
+                <option value="40841">Armory</option>
+                <option value="41418">Drakeharvest</option>
+                <option value="37359">Dusty Attic</option>
+                <option value="42686">Enchanted Dungeon</option>
+                <option value="42541">Frigidfin Expedition</option>
+                <option value="42685">Haunted Museum</option>
+                <option value="34848">Remembrance</option>
+                <option value="43685">Springswarm</option>
+                <option value="37361">Strange Chests</option>
+                <option value="40825">Target Practice</option>
+                <option value="35959">Voyage of the Tenacity</option>
+            </optgroup>
+
+            <optgroup label="Other">
+                <option value="44082">Ancient Harpy Canyon</option>
+                <option value="34837">Autumn Clearing</option>
+                <option value="40824">Battlefield</option>
+                <option value="45486">Cartographer's Office</option>
+                <option value="38215">Flowering Wasteland</option>
+                <option value="34838">Foxfire Grove</option>
+                <option value="34839">Frostbite Falls</option>
+                <option value="43382">Garden Arches</option>
+                <option value="38283">Lovebird Landscape</option>
+                <option value="34842">Moonbeam Aqueduct</option>
+                <option value="34841">Pillow Palace</option>
+                <option value="37360">Quaint Parlor</option>
+                <option value="34843">Rocky Refuge</option>
+                <option value="34844">Royal Chambers</option>
+                <option value="37865">Serpent Shrine</option>
+                <option value="34845">Shoreline Serenity</option>
+                <option value="34846">Starksand Dunes</option>
+                <option value="45956">Summer</option>
+                <option value="39895">Sunparched Prowl</option>
+                <option value="42764">Thunder Lizards</option>
+                <option value="34847">Titan's Fall</option>
+                <option value="34840">Webfiend Cave</option>
+            </optgroup>
+        </select>
+    );
+}
