@@ -11,7 +11,7 @@ export function SkinUpdateFields(props){
 
   var fullUrl = window.location.href;
   const adminUrl = fullUrl
-  const previewUrl = fullUrl.substring(0, fullUrl.lastIndexOf('/')-1);
+  const previewUrl = fullUrl.substring(0, fullUrl.lastIndexOf('/'));
 
   const [previewModalIsOpen, setPreviewModalIsOpen] = useState(false);
   const [adminModalIsOpen, setAdminModalIsOpen] = useState(false);
@@ -76,7 +76,7 @@ export function SkinUpdateFields(props){
                 <p>{previewUrl}</p>
               </div>
               <div class="modal-footer">
-                <CopyToClipboard text={adminUrl}
+                <CopyToClipboard text={previewUrl}
                   onCopy={() => toast("Copied preview url to clipboard")}>
                   <button className='modal-btn'>Copy to clipboard</button>
                 </CopyToClipboard>

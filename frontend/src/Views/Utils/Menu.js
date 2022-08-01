@@ -5,12 +5,12 @@ export function Menu(){
         <div className="Menu">
             <button className="Menu_button" onClick={(e) =>{
                 e.preventDefault();
-                window.location.href = domain + '/skins';
+                window.location.href = domain;
             } }>Get Started</button>
                 
             <button className="Menu_button" onClick={(e) =>{
                 e.preventDefault();
-                window.location.href = domain + '/skins/about';
+                window.location.href = domain + '/about';
             } }>About</button>
 
             <button className="Menu_button" onClick={(e) =>{

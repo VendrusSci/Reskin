@@ -1,7 +1,7 @@
 ﻿using backend.Models;
 using backend.Utils;
 using Microsoft.AspNetCore.Mvc;
-using System.Drawing;
+using SixLabors.ImageSharp;
 
 namespace backend.Controllers
 {
@@ -99,7 +99,7 @@ namespace backend.Controllers
                 }
                 else
                 {
-                    using(var image = Image.FromStream(skinFile.OpenReadStream()))
+                    using(var image = Image.Load(skinFile.OpenReadStream()))
                     {
                         if(image.Height != 350 || image.Width != 350)
                         {
@@ -156,7 +156,7 @@ namespace backend.Controllers
                     }
                     else
                     {
-                        using (var image = Image.FromStream(skinFile.OpenReadStream()))
+                        using (var image = Image.Load(skinFile.OpenReadStream()))
                         {
                             if (image.Height != 350 || image.Width != 350)
                             {

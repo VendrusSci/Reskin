@@ -65,7 +65,6 @@ export function UpdateSkin(){
         fetch('/api/skin/' + skinId +'/image', {
             method: 'GET'
         })
-        .then((response) => response.blob())
         .then((response) => {
             const contentType = response.headers.get("content-type");
             if (contentType && contentType.indexOf("application/json") !== -1) {

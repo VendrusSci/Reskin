@@ -40,7 +40,7 @@ export function SkinFields(props){
       .then((result) => {
         if(result.success === true){
           toast("Upload successful");
-          navigate(`${result.skinId}\\admin?accessGuid=${result.accessGuid}`);
+          navigate(`skins\\${result.skinId}\\admin?accessGuid=${result.accessGuid}`);
         }
         else{
           toast(result.message);

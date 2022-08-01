@@ -12,6 +12,8 @@ COPY /backend/backend/*.csproj ./
 RUN dotnet restore
 COPY /backend/backend ./
 RUN dotnet publish -c Release -o out
+RUN mv ./Bases out/Bases
+RUN mv ./Scenes out/Scenes
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 as final_image
 COPY --from=backend_build /app/out /skinchecker

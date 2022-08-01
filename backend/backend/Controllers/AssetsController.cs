@@ -44,8 +44,13 @@ namespace backend.Controllers
             }
             else
             {
+                if (!System.IO.Directory.Exists($"{_config.GetValue<string>("BaseStore")}"))
+                {
+                    Response.StatusCode = (int)HttpResponseCode.NotFound;
+                    return new JsonResult(new { success = false, message = $"Directory missing" });
+                }
                 Response.StatusCode = (int)HttpResponseCode.NotFound;
-                return new JsonResult(new { success = false, message = "Failed to retrieve base image" });
+                return new JsonResult(new { success = false, message = $"Failed to retrieve base image from {filePath}" });
             }
         }
       

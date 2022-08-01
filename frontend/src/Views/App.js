@@ -28,7 +28,7 @@ function App() {
           <Route path="/skins/:skinId/admin" element={
             <UpdateSkin/>}>
           </Route>
-          <Route path="/skins/about" element={
+          <Route path="/about" element={
             <About/>}>
           </Route>
         </Routes>
