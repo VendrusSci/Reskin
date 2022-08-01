@@ -29,12 +29,12 @@ export function UpdateSkin(){
         .then((result) => {
             if(result.success === false){
                 toast(result.message);
-                return navigate("../skins");
+                return navigate("..");
             }
         })
         .catch((error) => {
             console.log(error);
-            return navigate("../skins");
+            return navigate("..");
         });
 
         //Fetch skin data
@@ -43,10 +43,19 @@ export function UpdateSkin(){
         })
         .then((response) => response.json())
         .then((result) => {
-            setSkinInfo(result);
-            setBreed(result.currentBreed);
-            setPose(result.currentPose);
-            setSkinName(result.skinName);
+            if(result.success === true){
+                setSkinInfo(result);
+                setBreed(result.currentBreed);
+                setPose(result.currentPose);
+                setSkinName(result.skinName);
+            }
+            else{
+                toast(result.message);
+                setSkinInfo(undefined);
+                setBreed(undefined);
+                setPose(undefined);
+                setSkinName(undefined);
+            }
         })
         .catch((error) => {
             console.log(error);
@@ -57,9 +66,20 @@ export function UpdateSkin(){
             method: 'GET'
         })
         .then((response) => response.blob())
-        .then((blob) => {
-            setSkinFile(blob);
-        })
+        .then((response) => {
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                return response.json().then(data => {
+                    if(data.success === false){
+                        toast(data.message);
+                        return navigate("..");
+                    }
+                });
+            }
+            else{
+                return response.blob().then(data => setSkinFile(data));
+            }
+        })  
         .catch((error) => {
             console.log(error);
         });
@@ -73,15 +93,25 @@ export function UpdateSkin(){
             fetch('/api/assets/base/' + baseId, {
                 method: 'GET'
             })
-            .then((response) => response.blob())
-            .then((blob) => {
-                setBaseFile(blob);
-            })
+            .then((response) => {
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.indexOf("application/json") !== -1) {
+                    return response.json().then(data => {
+                        if(data.success === false){
+                            toast(data.message);
+                            return navigate("..");
+                        }
+                    });
+                }
+                else{
+                    return response.blob().then(data => setBaseFile(data));
+                }
+            })  
             .catch((error) => {
                 console.log(error);
             });
         }
-    }, [breed, pose]);
+    }, [breed, pose, navigate]);
 
     if(skinInfo === undefined || skinFile === undefined || baseFile === undefined)
         return <h3>Loading</h3>;

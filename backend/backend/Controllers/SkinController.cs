@@ -1,4 +1,5 @@
 ﻿using backend.Models;
+using backend.Utils;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
 
@@ -23,11 +24,15 @@ namespace backend.Controllers
         {
             var skin = _context.Skins.FirstOrDefault(x => x.SkinId == skinId);
             if (skin == null)
+            {
+                Response.StatusCode = (int)HttpResponseCode.NotFound;
                 return new JsonResult(new { success = false, message = "Skin with this ID does not exist or has been deleted" });
+            }
             else
             {
                 var skinType = skin.Coverage / 100 > _accentCutoff ? "Skin" : "Accent";
-                return new JsonResult(new {skin.SkinName, currentBreed = skin.Breed, currentPose = skin.Pose, skinType = skinType});
+                Response.StatusCode = (int)HttpResponseCode.OK;
+                return new JsonResult(new { success = true, skin.SkinName, currentBreed = skin.Breed, currentPose = skin.Pose, skinType = skinType }) ;
             }
         }
 
@@ -38,16 +43,21 @@ namespace backend.Controllers
             {
                 var skin = _context.Skins.FirstOrDefault(x => x.SkinId == skinId);
                 if (skin == null)
+                {
+                    Response.StatusCode = (int)HttpResponseCode.NotFound;
                     return new JsonResult(new { success = false, message = "Skin with this ID does not exist or has been deleted" });
+                }
                 else
                 {
                     Byte[] b = System.IO.File.ReadAllBytes(skin.SkinUrl);
+                    Response.StatusCode = (int)HttpResponseCode.OK;
                     return File(b, "image/png");
                 }
             }
             catch
             {
-                return new JsonResult(new { success = false, message = "Failed to retrieve skin image" });
+                Response.StatusCode = (int)HttpResponseCode.ServerError;
+                return new JsonResult(new { success = false, message = "Skin id found but failed to retrieve skin image" });
             }
         }
 
@@ -56,11 +66,19 @@ namespace backend.Controllers
         {
             var skin = _context.Skins.FirstOrDefault(x => x.SkinId == skinId);
             if (skin == null)
+            {
+                Response.StatusCode = (int)HttpResponseCode.NotFound;
                 return new JsonResult(new { success = false, message = "Skin with this ID does not exist or has been deleted" });
+            }
             else if(skin.AccessGuid != accessGuid)
+            {
+                Response.StatusCode = (int)HttpResponseCode.Unauthorized;
                 return new JsonResult( new { success = false, message = "You do not have a valid access code for this skin" });
+            }
+                
             else
             {
+                Response.StatusCode = (int)HttpResponseCode.OK;
                 return new JsonResult(new { success = true});
             }
         }
@@ -76,6 +94,7 @@ namespace backend.Controllers
             {
                 if(skinFile.Length > 300000)
                 {
+                    Response.StatusCode = (int)HttpResponseCode.NotAcceptable;
                     return new JsonResult(new { success = false, message = "Skin file size over maximum permitted." });
                 }
                 else
@@ -84,6 +103,7 @@ namespace backend.Controllers
                     {
                         if(image.Height != 350 || image.Width != 350)
                         {
+                            Response.StatusCode = (int)HttpResponseCode.NotAcceptable;
                             return new JsonResult(new { success = false, message = "Skin image must be 350 x 350px." });
                         }
                     }
@@ -113,6 +133,7 @@ namespace backend.Controllers
             });
             await _context.SaveChangesAsync();
 
+            Response.StatusCode = (int)HttpResponseCode.Created;
             return new JsonResult(new {success = true, skinId, accessGuid});
         }
 
@@ -130,6 +151,7 @@ namespace backend.Controllers
                 {
                     if (skinFile.Length > 300000)
                     {
+                        Response.StatusCode = (int)HttpResponseCode.NotAcceptable;
                         return new JsonResult(new { success = false, message = "Skin file size over maximum permitted." });
                     }
                     else
@@ -138,6 +160,7 @@ namespace backend.Controllers
                         {
                             if (image.Height != 350 || image.Width != 350)
                             {
+                                Response.StatusCode = (int)HttpResponseCode.NotAcceptable;
                                 return new JsonResult(new { success = false, message = "Skin image must be 350 x 350px." });
                             }
                         }
@@ -156,6 +179,7 @@ namespace backend.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            Response.StatusCode = (int)HttpResponseCode.OK;
             return new JsonResult(new { success = true });
         }
 
@@ -164,12 +188,22 @@ namespace backend.Controllers
         {
             var skin = _context.Skins.FirstOrDefault(x => x.SkinId == skinId);
             if (skin == null)
+            {
+                Response.StatusCode = (int)HttpResponseCode.NotFound;
                 return new JsonResult(new { success = false, message = "Skin with this ID does not exist or has been deleted" });
+            }
             else if (skin.AccessGuid != accessGuid)
+            {
+                Response.StatusCode = (int)HttpResponseCode.Unauthorized;
                 return new JsonResult(new { success = false, message = "You do not have a valid access code for this skin" });
+            }
             else
             {
+                if(System.IO.File.Exists(skin.SkinUrl))
+                    System.IO.File.Delete(skin.SkinUrl);
                 _context.Skins.Remove(skin);
+                _context.SaveChanges();
+                Response.StatusCode = (int)HttpResponseCode.Deleted;
                 return new JsonResult(new { success = true });
             }
         }

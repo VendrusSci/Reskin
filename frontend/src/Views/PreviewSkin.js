@@ -28,7 +28,7 @@ export function PreviewSkin(){
         .then((result) => {
             if(result.success === false){
                 toast(result.message);
-                return navigate("../skins");
+                return navigate("..");
             }
             setSkinInfo(result);
 
@@ -43,8 +43,7 @@ export function PreviewSkin(){
                     return response.json().then(data => {
                       if(data.success === false){
                         toast(data.message);
-                        return navigate("../skins");
-                        
+                        return navigate("..");
                       }
                     });
                 }
@@ -62,7 +61,6 @@ export function PreviewSkin(){
 
         //Fetch skin image
         fetch('/api/skin/' + skinId + '/image', {
-             
             method: 'GET'
         })
         .then((response) => {
@@ -71,8 +69,7 @@ export function PreviewSkin(){
                 return response.json().then(data => {
                     if(data.success === false){
                         toast(data.message);
-                        return navigate("../skins");
-                        
+                        return navigate("..");
                     }
                 });
             }

@@ -19,7 +19,7 @@ function App() {
       </header>
       <BrowserRouter>
         <Routes>
-          <Route path="/skins" element={
+          <Route path="/" element={
             <CreateSkin/>}>
           </Route>
           <Route path="/skins/:skinId" element={

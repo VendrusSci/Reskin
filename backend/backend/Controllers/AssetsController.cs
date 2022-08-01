@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using backend.Utils;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,10 +22,12 @@ namespace backend.Controllers
             try
             {
                 Byte[] b = System.IO.File.ReadAllBytes($"{_config.GetValue<string>("SceneStore")}/{id}.png");
+                Response.StatusCode = (int)HttpResponseCode.OK;
                 return File(b, "image/png");
             }
             catch
             {
+                Response.StatusCode = (int)HttpResponseCode.NotFound;
                 return new JsonResult(new { success = false, message = "Failed to retrieve scene image" });
             }
         }
@@ -32,13 +35,16 @@ namespace backend.Controllers
         [HttpGet("base/{id}")]
         public ActionResult GetBase(string id)
         {
-            try
-            {
-                Byte[] b = System.IO.File.ReadAllBytes($"{_config.GetValue<string>("BaseStore")}/{id}.png");
+            var filePath = $"{_config.GetValue<string>("BaseStore")}/{id}.png";
+            if (System.IO.File.Exists(filePath)) 
+            { 
+                Byte[] b = System.IO.File.ReadAllBytes(filePath);
+                Response.StatusCode = (int)HttpResponseCode.OK;
                 return File(b, "image/png");
             }
-            catch
+            else
             {
+                Response.StatusCode = (int)HttpResponseCode.NotFound;
                 return new JsonResult(new { success = false, message = "Failed to retrieve base image" });
             }
         }

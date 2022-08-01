@@ -18,9 +18,18 @@ export function CreateSkin(){
         fetch('/api/assets/base/' + baseId, {
             method: 'GET'
         })
-        .then((response) => response.blob())
-        .then((blob) => {
-            setBaseFile(blob);
+        .then((response) => {
+            const contentType = response.headers.get("content-type");
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+            return response.json().then(data => {
+                if(data.success === false){
+                    toast(data.message + ". Fatal error - please report.");
+                }
+            });
+        }
+        else{
+            return response.blob().then(data => setBaseFile(data));
+        }
         })
         .catch((error) => {
             toast('Error - see console');
