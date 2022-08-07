@@ -3,16 +3,17 @@ import { Toaster } from 'react-hot-toast';
 import { CreateSkin } from './CreateSkin.js';
 import { UpdateSkin} from './UpdateSkin.js';
 import { PreviewSkin } from './PreviewSkin';
-import { Menu } from './Utils/Menu.js';
+import { Navbar } from './Utils/Navbar.js'
 import { About } from './About.js';
 import './CSS/App.css';
+import './CSS/Navbar.css';
 
 function App() {
   return (
     <div className="App">
       <div><Toaster/></div>
       <header className="App-header">
-        <Menu/>
+        <Navbar/>
         <br/>
         <h1 className='App-title'>RESKIN</h1>
         <h3 className='App-title'>No scrape, no hotlink, no fuss</h3>
