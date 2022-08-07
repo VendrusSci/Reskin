@@ -184,7 +184,7 @@ namespace backend.Controllers
         }
 
         [HttpDelete]
-        public ActionResult Delete(string skinId, string accessGuid)
+        public ActionResult Delete([FromForm] string skinId, [FromForm] string accessGuid)
         {
             var skin = _context.Skins.FirstOrDefault(x => x.SkinId == skinId);
             if (skin == null)
@@ -203,7 +203,7 @@ namespace backend.Controllers
                     System.IO.File.Delete(skin.SkinUrl);
                 _context.Skins.Remove(skin);
                 _context.SaveChanges();
-                Response.StatusCode = (int)HttpResponseCode.Deleted;
+                Response.StatusCode = (int)HttpResponseCode.OK;
                 return new JsonResult(new { success = true });
             }
         }

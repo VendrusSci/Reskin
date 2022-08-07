@@ -58,7 +58,7 @@ export function SkinPreviewFields(props){
                     <FontAwesomeIcon data-tip="<p>Your dragon's image without apparel or skins</p>" 
                     icon={faCircleQuestion}/>
                 </div>
-                <label className="Skin_label_button">
+                <label className="Skin-label-button">
                     <input className='Skin-file-input' onChange={onDragonPathChange} type="file" accept="image/png"/>
                     Choose File
                 </label>
@@ -74,7 +74,7 @@ export function SkinPreviewFields(props){
                                                 </p>" 
                     icon={faCircleQuestion}/>
                 </div>
-                <label className="Skin_label_button">
+                <label className="Skin-label-button">
                     <input className='Skin-file-input' onChange={onApparelPathChange} type="file" accept="image/png"/>
                     Choose File
                 </label>

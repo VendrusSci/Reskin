@@ -55,7 +55,7 @@
 .Skin-note{
     font-size: 14px;
 }
-.Skin_button{
+.Skin-button{
     background-color: cadetblue;
     color: white;
     font-size: 14px;
@@ -63,7 +63,7 @@
     border-radius: 5px;
     border-color: darkslategray;
 }
-.Skin_label_button{
+.Skin-label-button{
     background-color: cadetblue;
     color: white;
     font-size: 14px;
@@ -80,13 +80,13 @@
     font-family: Arial, Helvetica, sans-serif;
     
 }
-.Skin-upload{
+.Skin-action{
     display:flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;
 }
-.Skin-upload-button{
+.Skin-action-button{
     background-color: cadetblue;
     color: white;
     font-size: 18px;
@@ -117,13 +117,13 @@
     background-color: #282c34;
     color: white;
 }
-.Skin-update{
+.Skin_update{
     background-color: #282c34;
     color: white;
     display: flex;
     flex-direction: column;
 }
-.Skin_modal{
+.Skin-modal{
     z-index: 50;
     position: fixed;
     top: 50%;
@@ -139,7 +139,7 @@
     padding: 20px;
 }
       
-.Skin_modal_overlay {
+.Skin-modal-overlay {
     z-index: 40;
     position: fixed;
     top: 0;

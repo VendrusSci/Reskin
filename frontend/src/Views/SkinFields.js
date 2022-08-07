@@ -68,13 +68,13 @@ export function SkinFields(props){
         </div>
         <div className='Skin-input'>
           <label>Select skin:</label>
-          <label className="Skin_label_button">
+          <label className="Skin-label-button">
               <input className='Skin-file-input' onChange={onSkinPathChange} type="file" accept="image/png"/>
               Choose File
           </label>
         </div>
-        <div className='Skin-upload'>
-          <button className='Skin-upload-button' onClick={uploadSkin}>UPLOAD</button>
+        <div className='Skin-action'>
+          <button className='Skin-action-button' onClick={uploadSkin}>UPLOAD</button>
         </div>
       </div>
     );
