@@ -31,6 +31,8 @@ namespace backend.Controllers
             else
             {
                 var skinType = skin.Coverage / 100 > _accentCutoff ? "Skin" : "Accent";
+                skin.LastViewed = DateTime.UtcNow;
+                _context.SaveChanges();
                 Response.StatusCode = (int)HttpResponseCode.OK;
                 return new JsonResult(new { success = true, skin.SkinName, currentBreed = skin.Breed, currentPose = skin.Pose, skinType = skinType }) ;
             }
