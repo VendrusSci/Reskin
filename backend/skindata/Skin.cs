@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace backend.Models
+namespace SkinData
 {
     public partial class Skin
     {

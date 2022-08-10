@@ -1,7 +1,7 @@
-﻿using backend.Models;
-using backend.Utils;
+﻿using backend.Utils;
 using Microsoft.AspNetCore.Mvc;
 using SixLabors.ImageSharp;
+using SkinData;
 
 namespace backend.Controllers
 {

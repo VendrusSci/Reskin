@@ -78,6 +78,7 @@
         background-color: #282c34;
         border-top: 1px solid black;
         display: block;
+        z-index: 100;
     }
     .navigation-menu ul {
         position: absolute;

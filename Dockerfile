@@ -8,15 +8,23 @@ RUN npm run build
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 as backend_build
 WORKDIR /app
-COPY /backend/backend/*.csproj ./
+COPY /backend/*.sln ./
+COPY /backend/backend/*.csproj ./backend/
+COPY /backend/skindata/*.csproj ./skindata/
+COPY /backend/utils/maint/*.csproj ./utils/maint/
 RUN dotnet restore
-COPY /backend/backend ./
+
+COPY /backend/backend ./backend/
+COPY /backend/skindata ./skindata/
+COPY /backend/utils/maint ./utils/maint/
 RUN dotnet publish -c Release -o out
-RUN mv ./Bases out/Bases
-RUN mv ./Scenes out/Scenes
+
+RUN mv ./backend/Bases out/Bases
+RUN mv ./backend/Scenes out/Scenes
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 as final_image
 COPY --from=backend_build /app/out /skinchecker
 COPY --from=frontend_build /app/build /skinchecker/wwwroot
 WORKDIR /skinchecker
+EXPOSE 80
 ENTRYPOINT ["dotnet", "backend.dll"]

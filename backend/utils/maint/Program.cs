@@ -1,4 +1,4 @@
-﻿using backend.Models;
+﻿using SkinData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
@@ -10,8 +10,8 @@ namespace maint
         public static void Main()
         {
             IConfiguration config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.Development.json")
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("maint.appsettings.Development.json")
+                .AddJsonFile("maint.appsettings.json")
                 .AddEnvironmentVariables()
                 .Build();
 

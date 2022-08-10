@@ -16,15 +16,18 @@ export function Navbar(){
             </button>
             <div className={isNavbarExpanded ? "navigation-menu expanded" : "navigation-menu"}>
                 <ul>
-                <li>
-                    <a href=".">Get Started</a>
-                </li>
-                <li>
-                    <a href="/about">About</a>
-                </li>
-                <li>
-                    <a href="https://github.com/VendrusSci/Reskin">Source Code</a>
-                </li>
+                    <li>
+                        <a href=".">Get Started</a>
+                    </li>
+                    <li>
+                        <a href="/about">About</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/VendrusSci/Reskin">Source Code</a>
+                    </li>
+                    <li>
+                        <a href="https://www1.flightrising.com/forums/gde/3157825">Guide</a>
+                    </li>
                 </ul>
             </div>
         </nav>

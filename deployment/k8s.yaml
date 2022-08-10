@@ -66,7 +66,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ghcr.io/vendrussci/reskin:1.2
+          image: ghcr.io/vendrussci/reskin:1.3
           env:
             - name: IMAGESTORE
               value: /image-storage
@@ -165,3 +165,40 @@ spec:
           requests:
             storage: 512Mi
 ---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cronjob-maint
+  namespace: olivia
+  labels:
+    app.kubernetes.io/name: reskin
+    app.kubernetes.io/component: maint
+spec:
+  schedule: "2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: cronjob-maint
+          namespace: olivia
+          labels:
+            app.kubernetes.io/name: reskin
+            app.kubernetes.io/component: maint
+            is-cron: "true"
+        spec:
+          containers:
+          - name: cronjob-maint
+            image: ghcr.io/vendrussci/reskin:1.3
+            imagePullPolicy: IfNotPresent
+            env:
+            - name: IMAGESTORE
+              value: /image-storage
+            - name: CONNECTIONSTRINGS__TOOLSDB
+              valueFrom:
+                secretKeyRef:
+                  name: reskin-secrets
+                  key: db-connection-string
+            command:
+              - dotnet
+              - maint.dll
+          restartPolicy: Never

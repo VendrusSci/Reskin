@@ -1,4 +1,4 @@
-using backend.Models;
+using SkinData;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
