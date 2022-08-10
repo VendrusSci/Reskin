@@ -12,7 +12,7 @@ export function SkinPreviewDisplay(props){
 
     useEffect(() => {
         var skinUrl, dragonUrl
-
+        var baseUrl = URL.createObjectURL(props.baseFile);
         skinUrl = URL.createObjectURL(props.skinFile);
         if(!props.dragonFile)
             dragonUrl = URL.createObjectURL(props.baseFile);
@@ -21,11 +21,11 @@ export function SkinPreviewDisplay(props){
         
         if(props.apparelFile){
             var apparelUrl = URL.createObjectURL(props.apparelFile);
-            mergeImages([dragonUrl, skinUrl, apparelUrl])
+            mergeImages([baseUrl, dragonUrl, skinUrl, apparelUrl])
                 .then((img) => setSkinImg(img)); 
         }
         else{
-          mergeImages([dragonUrl, skinUrl])
+          mergeImages([baseUrl, dragonUrl, skinUrl])
                 .then((img) => {
                     setSkinImg(img);
                   }); 
