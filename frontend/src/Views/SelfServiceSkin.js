@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { SkinSelfServiceFields } from './SkinSelfServiceFields';
 import { SkinSelfServiceDisplay } from './SkinSelfServiceDisplay';

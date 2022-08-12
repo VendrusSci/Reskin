@@ -65,14 +65,12 @@ export function SkinSelfServiceDisplay(props){
     }, [props.sceneFile, props.isOpaque]);
 
     return(
-        <div className='Skin-images'>
-            <div className='Image_wrapper container'>
-                <div className='Image_overlay_preview'>
-                    <img className='Image_skin Image_resize' id='skinImage' alt="" ref={imageRef} src={skinImg}></img>
-                </div>
-                <img className={sceneStyle} id='sceneImage' alt="" src={sceneImg}></img>
-                <img className='Scene_background' id='sceneBackground' alt="" src={sceneBgPath}></img>
-            </div>
+      <div className='Skin-images'>
+        <div className='Image_wrapper container'>
+          <img className='Image_overlay_preview' id='skinImage' alt="" ref={imageRef} src={skinImg}></img>
+          <img className={sceneStyle} id='sceneImage' alt="" src={sceneImg}></img>
+          <img className='Scene_background' id='sceneBackground' alt="" src={sceneBgPath}></img>
         </div>
+      </div>
     );
 }
