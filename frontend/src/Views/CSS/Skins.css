@@ -148,3 +148,13 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.75);
 }
+
+optgroup{
+    background: cadetblue;
+    text-align: left;
+}
+
+option{
+    background: lightslategrey;
+    text-align: right;
+}

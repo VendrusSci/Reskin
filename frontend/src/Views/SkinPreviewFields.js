@@ -23,9 +23,10 @@ export function SkinPreviewFields(props){
 
     function onSceneChange(value){
         setScene(value);
+
         if(value > 0){
-           fetch('/api/assets/scene/' + value, {
-            method: 'GET',
+           fetch(`/api/assets/scene/${value}`, {
+                method: 'GET',
             })
             .then((response) => response.blob())
             .then((blob) => {
@@ -82,7 +83,7 @@ export function SkinPreviewFields(props){
             <div className='Skin-input'>
                 <label>Select scene:</label>
                 &nbsp;&nbsp;
-                <SceneDropdown scene={scene} onSceneChange={onSceneChange}/>
+                <SceneDropdown scene={scene} onSceneChange={onSceneChange} showDefault={true}/>
             </div>
             <div className='Skin-input'>
                 <label>Scenic mode:</label>

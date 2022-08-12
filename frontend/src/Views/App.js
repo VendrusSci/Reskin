@@ -7,6 +7,8 @@ import { Navbar } from './Utils/Navbar.js'
 import { About } from './About.js';
 import './CSS/App.css';
 import './CSS/Navbar.css';
+import { SelfServiceSkin } from './SelfServiceSkin.js';
+import { ScenePreview } from './ScenePreview.js';
 
 function App() {
   return (
@@ -28,6 +30,12 @@ function App() {
           </Route>  
           <Route path="/skins/:skinId/admin" element={
             <UpdateSkin/>}>
+          </Route>
+          <Route path="/selfservice" element={
+            <SelfServiceSkin/>}>
+          </Route>
+          <Route path="/scenes" element={
+            <ScenePreview/>}>
           </Route>
           <Route path="/about" element={
             <About/>}>

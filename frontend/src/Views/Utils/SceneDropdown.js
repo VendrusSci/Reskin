@@ -2,20 +2,21 @@ export function SceneDropdown(props){
     return(
         <select className='Skin-dropdown' value={props.scene} onChange={(e)=>{props.onSceneChange(e.target.value)}}>
             <option value="0">None</option>
-            <optgroup label="Default">
-                <option value="9">Arcane</option>
-                <option value="1">Earth</option>
-                <option value="11">Fire</option>
-                <option value="6">Ice</option>
-                <option value="8">Light</option>
-                <option value="5">Lightning</option>
-                <option value="10">Nature</option>
-                <option value="2">Plague</option>
-                <option value="7">Shadow</option>
-                <option value="4">Water</option>
-                <option value="3">Wind</option>
-            </optgroup>
-            
+            {props.showDefault &&
+                <optgroup label="Default">
+                    <option value="9">Arcane</option>
+                    <option value="1">Earth</option>
+                    <option value="11">Fire</option>
+                    <option value="6">Ice</option>
+                    <option value="8">Light</option>
+                    <option value="5">Lightning</option>
+                    <option value="10">Nature</option>
+                    <option value="2">Plague</option>
+                    <option value="7">Shadow</option>
+                    <option value="4">Water</option>
+                    <option value="3">Wind</option>
+                </optgroup>
+            }
             <optgroup label="Elemental Festival">
                 <option value="36048">Arcanist's Domain</option>
                 <option value="36759">Earthshaker's Domain</option> 

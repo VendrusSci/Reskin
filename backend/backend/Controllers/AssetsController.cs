@@ -17,11 +17,19 @@ namespace backend.Controllers
         }
 
         [HttpGet("scene/{id}")]
-        public ActionResult GetScene(int id)
+        public ActionResult GetScene(int id, bool fullImage = false)
         {
+            string filepath = "";
+            if (fullImage)
+            {
+                filepath = $"{_config.GetValue<string>("SceneStore")}/{id}_full.png";
+            }
+            else
+                filepath = $"{_config.GetValue<string>("SceneStore")}/{id}.png";
+
             try
             {
-                Byte[] b = System.IO.File.ReadAllBytes($"{_config.GetValue<string>("SceneStore")}/{id}.png");
+                Byte[] b = System.IO.File.ReadAllBytes(filepath);
                 Response.StatusCode = (int)HttpResponseCode.OK;
                 return File(b, "image/png");
             }

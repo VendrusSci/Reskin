@@ -20,6 +20,12 @@ export function Navbar(){
                         <a href=".">Get Started</a>
                     </li>
                     <li>
+                        <a href="/selfservice">Self-Service Preview</a>
+                    </li>
+                    <li>
+                        <a href="/scenes">Scene Preview</a>
+                    </li>
+                    <li>
                         <a href="/about">About</a>
                     </li>
                     <li>
