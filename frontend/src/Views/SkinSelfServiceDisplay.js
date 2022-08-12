@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import mergeImages from 'merge-images';
+import toast from 'react-hot-toast';
 import './CSS/Skins.css';
 import './CSS/Image.css';
 
@@ -22,7 +23,12 @@ export function SkinSelfServiceDisplay(props){
         if(props.skinFile){
             skinUrl = URL.createObjectURL(props.skinFile);
             mergeImages([dragonUrl, skinUrl])
-                .then((img) => setSkinImg(img)); 
+                .then((img) => {
+                  setSkinImg(img);
+                  if(!props.dragonFile && props.sceneFile){
+                    toast("Skin selected without dragon - background applied")
+                  }
+                });
         }
         else{
             setSkinImg(dragonUrl);
@@ -33,7 +39,8 @@ export function SkinSelfServiceDisplay(props){
           URL.revokeObjectURL(skinUrl);
           URL.revokeObjectURL(dragonUrl);
         }
-      }, [props.baseFile, props.skinFile, props.dragonFile, props.apparelFile, props.pose, props.breed]);
+      }, [props.baseFile, props.skinFile, props.dragonFile, props.apparelFile, 
+          props.sceneFile, props.pose, props.breed]);
     
     useEffect(() => {
       if(props.sceneFile){
