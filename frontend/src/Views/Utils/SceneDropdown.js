@@ -44,10 +44,13 @@ export function SceneDropdown(props){
             <optgroup label="Event">
                 <option value="39745">8th Anniversary</option>
                 <option value="40841">Armory</option>
+                <option value="40824">Battlefield</option>
                 <option value="41418">Drakeharvest</option>
                 <option value="37359">Dusty Attic</option>
                 <option value="42686">Enchanted Dungeon</option>
+                <option value="46542">Foundry Battle</option>
                 <option value="42541">Frigidfin Expedition</option>
+                <option value="46543">Hall of Armor</option>
                 <option value="42685">Haunted Museum</option>
                 <option value="34848">Remembrance</option>
                 <option value="43685">Springswarm</option>
@@ -59,7 +62,6 @@ export function SceneDropdown(props){
             <optgroup label="Other">
                 <option value="44082">Ancient Harpy Canyon</option>
                 <option value="34837">Autumn Clearing</option>
-                <option value="40824">Battlefield</option>
                 <option value="45486">Cartographer's Office</option>
                 <option value="38215">Flowering Wasteland</option>
                 <option value="34838">Foxfire Grove</option>
