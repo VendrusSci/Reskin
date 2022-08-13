@@ -91,11 +91,18 @@ export function PreviewSkin(){
         return <h3>Loading</h3>;
 
     return(
-        <div className='App-body'>
-            <SkinPreviewFields setDragonFile={setDragonFile} setApparelFile={setApparelFile} setSceneFile={setSceneFile} setIsOpaque={setIsOpaque}
-                                skinName={skinName} skinType={skinType} isOpaque={isOpaque}/>
-            <SkinPreviewDisplay baseFile={baseFile} skinFile={skinFile}  dragonFile={dragonFile} apparelFile={apparelFile} sceneFile={sceneFile}
-                                breed={currentBreed} pose={currentPose} isOpaque={isOpaque}/>
+        <div>
+            <div className='App-title'>
+                <h2>SKIN PREVIEW</h2>
+                See the dragon your dragon could be
+            </div>
+            <br/>
+            <div className='App-body'>
+                <SkinPreviewFields setDragonFile={setDragonFile} setApparelFile={setApparelFile} setSceneFile={setSceneFile} setIsOpaque={setIsOpaque}
+                                    skinName={skinName} skinType={skinType} isOpaque={isOpaque}/>
+                <SkinPreviewDisplay baseFile={baseFile} skinFile={skinFile}  dragonFile={dragonFile} apparelFile={apparelFile} sceneFile={sceneFile}
+                                    breed={currentBreed} pose={currentPose} isOpaque={isOpaque}/>
+            </div>
         </div>
     );
 }

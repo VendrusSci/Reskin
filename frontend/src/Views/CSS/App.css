@@ -3,12 +3,20 @@
 }
 
 .App-header {
+  text-align: center;
   background-color: #282c34;
-  min-height: 200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
+}
+
+.App-title {
+  width: 100%;
+
+  padding: 0.5rem 0rem;
+  background-color: #282c34;
   color: white;
 }
 

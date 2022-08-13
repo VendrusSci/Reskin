@@ -40,12 +40,18 @@ export function CreateSkin(){
     if(baseFile === undefined || baseFile === "")
         return <h3>Loading</h3>;
 
-    return( 
-        <div className='App-body'>
-            <SkinFields setSkinFile={setSkinFile} setBreed={setBreed} setPose={setPose}
-                        skinFile={skinFile} breed={breed}  pose={pose} coverage={coverage}/>
-            <SkinDisplay setCoverage={setCoverage} setSkinFile={setSkinFile}
-                        skinFile={skinFile} baseFile={baseFile} breed={breed} pose={pose} coverage={coverage}/>
-        </div>
+    return(
+        <div>
+            <div className='App-title'>
+                <h2>SKIN UPLOAD</h2>
+                Check and upload your skin for others to preview with
+            </div>
+            <div className='App-body'>
+                <SkinFields setSkinFile={setSkinFile} setBreed={setBreed} setPose={setPose}
+                            skinFile={skinFile} breed={breed}  pose={pose} coverage={coverage}/>
+                <SkinDisplay setCoverage={setCoverage} setSkinFile={setSkinFile}
+                            skinFile={skinFile} baseFile={baseFile} breed={breed} pose={pose} coverage={coverage}/>
+            </div>
+        </div> 
     );
 }

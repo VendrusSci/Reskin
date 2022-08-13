@@ -14,11 +14,8 @@ function App() {
   return (
     <div className="App">
       <div><Toaster/></div>
-      <header className="App-header">
+      <header>
         <Navbar/>
-        <br/>
-        <h1 className='App-title'>RESKIN</h1>
-        <h3 className='App-title'>No scrape, no hotlink, no fuss</h3>
       </header>
       <BrowserRouter>
         <Routes>

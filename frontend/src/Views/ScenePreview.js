@@ -10,11 +10,19 @@ export function ScenePreview(){
     const [isOpaque, setIsOpaque] = useState(true);
 
     return(
-        <div className='App-body-scene'>
-            <SceneFields setDragonFile={setDragonFile} setSceneFile={setSceneFile}
-                                setIsOpaque={setIsOpaque} isOpaque={isOpaque}/>
-            <SceneDisplay dragonFile={dragonFile} sceneFile={sceneFile}
-                                isOpaque={isOpaque}/>
+        <div>
+            <div className='App-title'>
+                <h2>SCENE PREVIEW</h2>
+                View your dragon against the site scenes
+            </div>
+            <br/>
+            <div className='App-body-scene'>
+                <SceneFields setDragonFile={setDragonFile} setSceneFile={setSceneFile}
+                                    setIsOpaque={setIsOpaque} isOpaque={isOpaque}/>
+                <br/>
+                <SceneDisplay dragonFile={dragonFile} sceneFile={sceneFile}
+                                    isOpaque={isOpaque}/>
+            </div>
         </div>
     );
 }

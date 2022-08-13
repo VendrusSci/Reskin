@@ -45,3 +45,26 @@
 .Image_hidden{
     display: none;
 }
+
+.ScenePreview_overlay {
+    z-index: 5;
+    position: absolute;
+}
+
+.ScenePreview_overlay_faded{
+    z-index: 5;
+    position: absolute;
+    opacity: 40%;
+}
+
+.ScenePreview_background {
+    z-index: 1;
+    position: relative;
+}
+
+.ScenePreview_dragon{
+    z-index: 10;
+    position: absolute;
+    left: 329px;
+    top: 105px;
+}

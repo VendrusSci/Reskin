@@ -7,7 +7,7 @@ export function SceneDisplay(props){
     const [dragonImg, setDragonImg] = useState();
     const [sceneImg, setSceneImg] = useState();
     const [sceneBgPath, setSceneBgPath] = useState(undefined);
-    const [sceneStyle, setSceneStyle] = useState("Scene_overlay");
+    const [sceneStyle, setSceneStyle] = useState("ScenePreview_overlay");
     const imageRef = React.useRef(null);
 
     useEffect(() => {
@@ -37,10 +37,10 @@ export function SceneDisplay(props){
       }
 
       if(props.isOpaque){
-        setSceneStyle('Scene_overlay');
+        setSceneStyle('ScenePreview_overlay');
       }
       else{
-        setSceneStyle('Scene_overlay_faded')
+        setSceneStyle('ScenePreview_overlay_faded')
       }
 
       return () => {
@@ -49,12 +49,10 @@ export function SceneDisplay(props){
     }, [props.sceneFile, props.isOpaque]);
 
     return(
-        <div className='Skin-images'>
-        <div className='Image_wrapper container'>
-          <img className='Image_overlay_preview' id='dragonImage' alt="" ref={imageRef} src={dragonImg}></img>
-          <img className={sceneStyle} id='sceneImage' alt="" src={sceneImg}></img>
-          <img className='Scene_background' id='sceneBackground' alt="" src={sceneBgPath}></img>
-        </div>
-      </div>
+          <div className='Image_wrapper container'>
+              <img className='ScenePreview_dragon' id='dragonImage' alt="" ref={imageRef} src={dragonImg}></img>
+              <img className={sceneStyle} id='sceneImage' alt="" src={sceneImg}></img>
+              <img className='ScenePreview_background' id='sceneBackground' alt="" src={sceneBgPath}></img>
+          </div>
     );
 }

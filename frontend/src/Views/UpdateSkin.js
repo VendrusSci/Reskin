@@ -116,12 +116,18 @@ export function UpdateSkin(){
         return <h3>Loading</h3>;
 
     return( 
-        <div className='App-body'>
-            <SkinUpdateFields setSkinFile={setSkinFile} setBreed={setBreed} setPose={setPose} setSkinName={setSkinName}
-                        skinFile={skinFile} breed={breed}  pose={pose} coverage={coverage} skinName={skinName}
-                        skinId={skinId} accessGuid={accessGuid}/>
-            <SkinDisplay setCoverage={setCoverage} 
-                        skinFile={skinFile} baseFile={baseFile} breed={breed} pose={pose} coverage={coverage}/>
+        <div>
+            <div className='App-title'>
+                <h2>SKIN ADMIN</h2>
+                Update your skin and grab links for buyers to preview with
+            </div>
+            <div className='App-body'>
+                <SkinUpdateFields setSkinFile={setSkinFile} setBreed={setBreed} setPose={setPose} setSkinName={setSkinName}
+                            skinFile={skinFile} breed={breed}  pose={pose} coverage={coverage} skinName={skinName}
+                            skinId={skinId} accessGuid={accessGuid}/>
+                <SkinDisplay setCoverage={setCoverage} 
+                            skinFile={skinFile} baseFile={baseFile} breed={breed} pose={pose} coverage={coverage}/>
+            </div>
         </div>
     );
 }
