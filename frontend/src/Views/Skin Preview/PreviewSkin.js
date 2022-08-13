@@ -2,7 +2,7 @@ import { SkinPreviewFields } from './SkinPreviewFields';
 import { SkinPreviewDisplay } from './SkinPreviewDisplay';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'
-import './CSS/App.css';
+import '../CSS/App.css';
 import toast from 'react-hot-toast';
 
 export function PreviewSkin(){

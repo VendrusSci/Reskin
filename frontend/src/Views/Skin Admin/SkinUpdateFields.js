@@ -1,12 +1,12 @@
-import {BreedDropdown} from './Utils/BreedDropdown';
-import {PoseDropdown} from './Utils/PoseDropdown';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { useNavigate } from 'react-router-dom'
 import Modal from 'react-modal';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import './CSS/Skins.css';
-import './CSS/Modal.css';
+import {BreedDropdown} from '../Utils/BreedDropdown';
+import {PoseDropdown} from '../Utils/PoseDropdown';
+import '../CSS/Skins.css';
+import '../CSS/Modal.css';
 
 export function SkinUpdateFields(props){
 

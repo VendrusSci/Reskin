@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { SceneDropdown } from './Utils/SceneDropdown';
-import ToggleSwitch from './Utils/ToggleSwitch';
-import './CSS/Skins.css';
+import { SceneDropdown } from '../Utils/SceneDropdown';
+import ToggleSwitch from '../Utils/ToggleSwitch';
+import '../CSS/Skins.css';
 
 export function SceneFields(props){
     const [scene, setScene] = useState("");

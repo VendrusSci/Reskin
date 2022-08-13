@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { CreateSkin } from './CreateSkin.js';
-import { UpdateSkin} from './UpdateSkin.js';
-import { PreviewSkin } from './PreviewSkin';
+import { CreateSkin } from './Skin Admin/CreateSkin.js';
+import { UpdateSkin} from './Skin Admin/UpdateSkin.js';
+import { PreviewSkin } from './Skin Preview/PreviewSkin';
+import { SelfServiceSkin } from './Self Service/SelfServiceSkin.js';
+import { ScenePreview } from './Scene Preview/ScenePreview.js';
 import { Navbar } from './Utils/Navbar.js'
 import { About } from './About.js';
 import './CSS/App.css';
 import './CSS/Navbar.css';
-import { SelfServiceSkin } from './SelfServiceSkin.js';
-import { ScenePreview } from './ScenePreview.js';
+
 
 function App() {
   return (

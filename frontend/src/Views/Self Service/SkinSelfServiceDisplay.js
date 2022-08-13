@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import mergeImages from 'merge-images';
 import toast from 'react-hot-toast';
-import './CSS/Skins.css';
-import './CSS/Image.css';
+import '../CSS/Skins.css';
+import '../CSS/Image.css';
 
 export function SkinSelfServiceDisplay(props){
 

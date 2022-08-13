@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './CSS/Skins.css';
-import './CSS/Image.css';
+import '../CSS/Skins.css';
+import '../CSS/Image.css';
 
 export function SceneDisplay(props){
 

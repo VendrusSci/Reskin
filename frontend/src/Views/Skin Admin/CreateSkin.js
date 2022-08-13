@@ -1,7 +1,7 @@
 import {SkinFields} from './SkinFields.js';
 import {SkinDisplay} from './SkinDisplay.js';
 import React, { useState, useEffect } from 'react';
-import './CSS/App.css';
+import '../CSS/App.css';
 import toast from 'react-hot-toast';
 
 export function CreateSkin(){

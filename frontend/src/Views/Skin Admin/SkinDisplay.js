@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import mergeImages from 'merge-images';
 import {PNG} from 'pngjs/browser'
 import toast from 'react-hot-toast';
-import './CSS/Skins.css';
-import './CSS/Image.css';
-import ToggleSwitch from './Utils/ToggleSwitch';
+import '../CSS/Skins.css';
+import '../CSS/Image.css';
+import ToggleSwitch from '../Utils/ToggleSwitch';
 
 export function SkinDisplay(props){
   const [skinImg, setSkinImg] = useState();

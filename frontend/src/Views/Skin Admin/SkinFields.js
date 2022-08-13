@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
-import {BreedDropdown} from './Utils/BreedDropdown';
-import {PoseDropdown} from './Utils/PoseDropdown';
-import './CSS/Skins.css';
+import {BreedDropdown} from '../Utils/BreedDropdown';
+import {PoseDropdown} from '../Utils/PoseDropdown';
+import '../CSS/Skins.css';
 
 export function SkinFields(props){
     const[skinName, setSkinName] = useState("Unnamed Skin");

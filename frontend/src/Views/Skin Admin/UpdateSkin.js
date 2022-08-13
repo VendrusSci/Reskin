@@ -1,9 +1,9 @@
-import {SkinUpdateFields} from './SkinUpdateFields.js';
-import {SkinDisplay} from './SkinDisplay.js';
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom'
-import './CSS/App.css';
 import toast from 'react-hot-toast';
+import {SkinUpdateFields} from './SkinUpdateFields.js';
+import {SkinDisplay} from './SkinDisplay.js';
+import '../CSS/App.css';
 
 export function UpdateSkin(){
     const [skinFile, setSkinFile] = useState("");

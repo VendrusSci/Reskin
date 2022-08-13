@@ -3,9 +3,9 @@ import ReactTooltip from 'react-tooltip';
 import toast from 'react-hot-toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
-import { SceneDropdown } from './Utils/SceneDropdown';
-import ToggleSwitch from './Utils/ToggleSwitch';
-import './CSS/Skins.css';
+import { SceneDropdown } from '../Utils/SceneDropdown';
+import ToggleSwitch from '../Utils/ToggleSwitch';
+import '../CSS/Skins.css';
 
 export function SkinSelfServiceFields(props){
 

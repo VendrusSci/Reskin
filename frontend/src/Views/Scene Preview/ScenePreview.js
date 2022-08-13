@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CSS/App.css';
+import '../CSS/App.css';
 import { SceneDisplay } from './SceneDisplay';
 import { SceneFields } from './SceneFields';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import mergeImages from 'merge-images';
-import './CSS/Skins.css';
-import './CSS/Image.css';
+import '../CSS/Skins.css';
+import '../CSS/Image.css';
 
 export function SkinPreviewDisplay(props){
     const [skinImg, setSkinImg] = useState();

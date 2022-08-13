@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SkinSelfServiceFields } from './SkinSelfServiceFields';
 import { SkinSelfServiceDisplay } from './SkinSelfServiceDisplay';
-import './CSS/App.css';
+import '../CSS/App.css';
 
 export function SelfServiceSkin(){
 
