@@ -9,7 +9,7 @@ export function Navbar(){
     return(
         <nav className="navigation">
             <span className="brand-name">
-                RESKIN
+                reSKIN
             </span>
             <button className="hamburger" onClick={() => setIsNavbarExpanded(!isNavbarExpanded)}>
             <FontAwesomeIcon icon={faBars} size='xl'/>
@@ -17,7 +17,7 @@ export function Navbar(){
             <div className={isNavbarExpanded ? "navigation-menu expanded" : "navigation-menu"}>
                 <ul>
                     <li>
-                        <a href=".">Upload Skin</a>
+                        <a href="/">Upload Skin</a>
                     </li>
                     <li>
                         <a href="/selfservice">Self-Service Preview</a>

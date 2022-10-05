@@ -4,9 +4,9 @@ export function About(){
         <div className="About_body">
             <div className="About_text">
                 <h2>General Info</h2>
-                <p>RESKIN is a scrape-free, hotlink-free skin checker and previewer written by Vendrus (#4101)</p>
+                <p>reSKIN is a scrape-free, hotlink-free skin checker and previewer written by Vendrus (#4101)</p>
                 <p>All dragon and apparel images must be saved by the user and uploaded manually, and all Flight Rising proprietary images
-                    have been manually downloaded and and stored on the server that runs RESKIN.
+                    have been manually downloaded and and stored on the server that runs reSKIN.
                 </p>
                 <p>This tool has been primarily built using the React framework, and performs almost all of its functionality in the front end.
                     That said, this is my first time writing a React front end, so please bear with (and report) any issues that occur.
