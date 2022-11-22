@@ -18,6 +18,7 @@ export function BreedDropdown(props){
             <option value="9">Snapper</option>
             <option value="7">Spiral</option>
             <option value="6">Tundra</option>
+            <option value="21">Undertide</option>
             <option value="19">Veilspun</option>
             <option value="10">Wildclaw</option> 
         </select>
