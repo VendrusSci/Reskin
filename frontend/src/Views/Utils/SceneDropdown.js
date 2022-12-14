@@ -71,6 +71,7 @@ export function SceneDropdown(props){
                 <option value="34838">Foxfire Grove</option>
                 <option value="34839">Frostbite Falls</option>
                 <option value="43382">Garden Arches</option>
+                <option value="48120">Harpy City</option>
                 <option value="38283">Lovebird Landscape</option>
                 <option value="34842">Moonbeam Aqueduct</option>
                 <option value="34841">Pillow Palace</option>
