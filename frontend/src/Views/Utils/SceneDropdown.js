@@ -40,25 +40,30 @@ export function SceneDropdown(props){
                 <option value="39685">Sandswept Delta</option>
                 <option value="39073">Training Fields</option>
                 <option value="39683">Waterway</option>
+                <option value="43921">Woodland Path</option>
             </optgroup>
 
             <optgroup label="Event">
                 <option value="39745">8th Anniversary</option>
                 <option value="40841">Armory</option>
                 <option value="40824">Battlefield</option>
+                <option value="49890">Deep Space</option>
                 <option value="41418">Drakeharvest</option>
                 <option value="37359">Dusty Attic</option>
                 <option value="42686">Enchanted Dungeon</option>
+                <option value="48173">Enchanted Library</option>
                 <option value="46542">Foundry Battle</option>
                 <option value="42541">Frigidfin Expedition</option>
                 <option value="46543">Hall of Armor</option>
                 <option value="42685">Haunted Museum</option>
+                <option value="49891">Polar Bear Ice Castle</option>
                 <option value="47042">Port Town</option>
                 <option value="34848">Remembrance</option>
                 <option value="43685">Springswarm</option>
                 <option value="37361">Strange Chests</option>
                 <option value="40825">Target Practice</option>
                 <option value="35959">Voyage of the Tenacity</option>
+                <option value="48174">Witch's Kitchen</option>
             </optgroup>
 
             <optgroup label="Other">
@@ -80,12 +85,14 @@ export function SceneDropdown(props){
                 <option value="34844">Royal Chambers</option>
                 <option value="37865">Serpent Shrine</option>
                 <option value="34845">Shoreline Serenity</option>
+                <option value="48995">Spring</option>
                 <option value="34846">Starksand Dunes</option>
                 <option value="45956">Summer</option>
                 <option value="39895">Sunparched Prowl</option>
                 <option value="42764">Thunder Lizards</option>
                 <option value="34847">Titan's Fall</option>
                 <option value="34840">Webfiend Cave</option>
+                <option value="48233">Winter</option>
             </optgroup>
         </select>
     );

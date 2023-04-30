@@ -2,6 +2,7 @@ export function BreedDropdown(props){
     return(
         <select className='Skin-dropdown' value={props.breed} onChange={(e)=>{props.setBreed(e.target.value)}}>
             <option value="20">Aberration</option>
+            <option value="22">Aether</option>
             <option value="18">Banescale</option>
             <option value="14">Bogsneak</option>
             <option value="12">Coatl</option>
