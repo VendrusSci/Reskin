@@ -85,7 +85,9 @@ export function SkinDisplay(props){
           &nbsp;&nbsp;
           <label>Overflow: {overflow}%</label>
         </div>
-        <p className='Skin-note'>Note: The overflow % takes transparency into account; the heatmap does not</p>
+        <p className='Skin-note'>Note: The overflow % takes transparency into account; the heatmap does not.<br/>
+        Small amounts of overflow should be accepted. <br/>
+        If it's not visible with the heat map, staff are unlikely to see it either.</p>
         <div className='Skin-data'>
           <ToggleSwitch isToggled={showHeatmap} setIsToggled={setShowHeatmap}/>
           &nbsp;&nbsp;

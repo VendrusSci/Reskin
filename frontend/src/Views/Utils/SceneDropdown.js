@@ -66,6 +66,15 @@ export function SceneDropdown(props){
                 <option value="48174">Witch's Kitchen</option>
             </optgroup>
 
+            <optgroup label="Achievements">
+                <option value="50692">Bleached Roots</option>
+                <option value="50693">Lilypad Pool</option>
+                <option value="50694">Cottage Garden</option>
+                <option value="50695">Roadside Tavern</option>
+                <option value="50696">Art Studio</option>
+                <option value="50697">Crystal Shop</option>
+            </optgroup>
+
             <optgroup label="Other">
                 <option value="44082">Ancient Harpy Canyon</option>
                 <option value="47090">Autumn</option>
@@ -80,6 +89,7 @@ export function SceneDropdown(props){
                 <option value="38283">Lovebird Landscape</option>
                 <option value="34842">Moonbeam Aqueduct</option>
                 <option value="34841">Pillow Palace</option>
+                <option value="50939">Progression of Flowers</option>
                 <option value="37360">Quaint Parlor</option>
                 <option value="34843">Rocky Refuge</option>
                 <option value="34844">Royal Chambers</option>
