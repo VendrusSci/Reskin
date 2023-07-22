@@ -5,21 +5,12 @@ import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
 import { SceneDropdown } from '../Utils/SceneDropdown';
 import ToggleSwitch from '../Utils/ToggleSwitch';
 import '../CSS/Skins.css';
+import { FileSubmitModal } from '../Utils/FileSubmitModal';
 
 export function SkinPreviewFields(props){
     const [scene, setScene] = useState("");
-
-    function onDragonPathChange(e){
-        if (e.target.files && e.target.files[0]) {
-            props.setDragonFile(e.target.files[0]);
-        }  
-    }
-
-    function onApparelPathChange(e){
-        if (e.target.files && e.target.files[0]) {
-            props.setApparelFile(e.target.files[0]);
-        }  
-    }
+    const [dragonModalIsOpen, setDragonModalIsOpen] = useState(false);
+    const [apparelModalIsOpen, setApparelModalIsOpen] = useState(false);
 
     function onSceneChange(value){
         setScene(value);
@@ -59,10 +50,8 @@ export function SkinPreviewFields(props){
                     <FontAwesomeIcon data-tip="<p>Your dragon's image without apparel or skins</p>" 
                     icon={faCircleQuestion}/>
                 </div>
-                <label className="Skin-label-button">
-                    <input className='Skin-file-input' onChange={onDragonPathChange} type="file" accept="image/png"/>
-                    Choose File
-                </label>
+                <button className='Skin-button' onClick={() => setDragonModalIsOpen(true)}>Upload</button>
+                <FileSubmitModal setFile={props.setDragonFile} modalIsOpen={dragonModalIsOpen} setModalIsOpen={setDragonModalIsOpen} title={"Upload Dragon Image"}/>
             </div>
             <div className='Skin-input'>
                 <div>
@@ -75,10 +64,8 @@ export function SkinPreviewFields(props){
                                                 </p>" 
                     icon={faCircleQuestion}/>
                 </div>
-                <label className="Skin-label-button">
-                    <input className='Skin-file-input' onChange={onApparelPathChange} type="file" accept="image/png"/>
-                    Choose File
-                </label>
+                <button className='Skin-button' onClick={() => setApparelModalIsOpen(true)}>Upload</button>
+                <FileSubmitModal setFile={props.setApparelFile} modalIsOpen={apparelModalIsOpen} setModalIsOpen={setApparelModalIsOpen} title={"Upload Apparel Image"}/>
             </div>
             <div className='Skin-input'>
                 <label>Select scene:</label>

@@ -1,6 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import { menuItems } from './MenuItems';
+import { MenuItem } from './MenuItem';
+import '../CSS/Navbar.css'
 
 export function Navbar(){
 
@@ -15,26 +18,14 @@ export function Navbar(){
             <FontAwesomeIcon icon={faBars} size='xl'/>
             </button>
             <div className={isNavbarExpanded ? "navigation-menu expanded" : "navigation-menu"}>
-                <ul>
-                    <li>
-                        <a href="/">Upload Skin</a>
-                    </li>
-                    <li>
-                        <a href="/selfservice">Self-Service Preview</a>
-                    </li>
-                    <li>
-                        <a href="/scenes">Scene Preview</a>
-                    </li>
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/VendrusSci/Reskin">Source Code</a>
-                    </li>
-                    <li>
-                        <a href="https://www1.flightrising.com/forums/gde/3157825">Guide</a>
-                    </li>
-                </ul>
+                <nav>
+                    <ul>
+                        {menuItems.map((menu, index) => {
+                            const depthLevel = 0;
+                            return <MenuItem items={menu} key={index} depthLevel={depthLevel}/>;
+                        })}
+                    </ul>
+                </nav>
             </div>
         </nav>
     );

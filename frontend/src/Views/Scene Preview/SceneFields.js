@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { SceneDropdown } from '../Utils/SceneDropdown';
 import ToggleSwitch from '../Utils/ToggleSwitch';
+import { FileSubmitModal } from '../Utils/FileSubmitModal';
 import '../CSS/Skins.css';
 
 export function SceneFields(props){
     const [scene, setScene] = useState("");
-
-    function onDragonPathChange(e){
-        if (e.target.files && e.target.files[0]) {
-            props.setDragonFile(e.target.files[0]);
-        }  
-    }
+    const [dragonModalIsOpen, setDragonModalIsOpen] = useState(false);
 
     function onSceneChange(value){
         setScene(value);
@@ -36,10 +32,8 @@ export function SceneFields(props){
         <div className='Skin-fields'>
             <div className='Skin-input'>
                 <label>Select dragon:</label> &nbsp;
-                <label className="Skin-label-button">
-                    <input className='Skin-file-input' onChange={onDragonPathChange} type="file" accept="image/png"/>
-                    Choose File
-                </label>
+                <button className='Skin-button' onClick={() => setDragonModalIsOpen(true)}>Upload</button>
+                <FileSubmitModal setFile={props.setDragonFile} modalIsOpen={dragonModalIsOpen} setModalIsOpen={setDragonModalIsOpen} title={"Upload Dragon Image"}/>
             </div>
             <div className='Skin-input'>
                 <label>Select scene:</label>

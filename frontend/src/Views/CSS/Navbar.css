@@ -98,7 +98,7 @@
       .navigation-menu li a {
         color: lightgrey;
         width: 100%;
-        padding: 1.5rem 0;
+        padding: 1rem;
       }
       .navigation-menu li:hover {
         background-color: darkslategrey;

@@ -8,7 +8,6 @@ import { ScenePreview } from './Scene Preview/ScenePreview.js';
 import { Navbar } from './Utils/Navbar.js'
 import { About } from './About.js';
 import './CSS/App.css';
-import './CSS/Navbar.css';
 
 
 function App() {
