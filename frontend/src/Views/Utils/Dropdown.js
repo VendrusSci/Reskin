@@ -8,7 +8,7 @@ export function Dropdown (props){
     return (
         <ul className={`dropdown ${dropdownClass} ${props.dropdown ? "show" : ""}`}>
             {props.submenus.map((submenu, index) => (
-                <MenuItem items={submenu} key={index} depthLevel={depthLevel}/>
+                <MenuItem items={submenu} key={index} depthLevel={depthLevel} setIsNavbarExpanded={props.setIsNavbarExpanded}/>
             ))}
         </ul>
     );

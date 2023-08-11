@@ -22,7 +22,7 @@ export function Navbar(){
                     <ul>
                         {menuItems.map((menu, index) => {
                             const depthLevel = 0;
-                            return <MenuItem items={menu} key={index} depthLevel={depthLevel}/>;
+                            return <MenuItem items={menu} key={index} depthLevel={depthLevel} setIsNavbarExpanded={setIsNavbarExpanded}/>;
                         })}
                     </ul>
                 </nav>

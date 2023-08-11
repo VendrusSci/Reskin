@@ -31,7 +31,7 @@ export function SkinSelfServiceDisplay(props){
                 });
         }
         else{
-            setSkinImg(dragonUrl);
+            setSkinImg('/nodragon.png');
         }
 
         // free memory when ever this component is unmounted

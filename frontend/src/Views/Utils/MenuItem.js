@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Dropdown } from './Dropdown';
+import { Link } from 'react-router-dom';
 import '../CSS/Nav.css'
 
 export function MenuItem(props) {
@@ -18,11 +19,16 @@ export function MenuItem(props) {
     };
 
     function toggleDropdown(){
-        setDropdown(!dropdown);
+        if(props.depthLevel > 0){
+            setDropdown(false);
+            props.setIsNavbarExpanded(false);
+        }
+        else
+            setDropdown(!dropdown);
     }
 
     return (
-        <li className="menu-items" onClick={toggleDropdown} onTouchStart={toggleDropdown} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        <li className="menu-items" onClick={toggleDropdown} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
             {items.submenu ? (
             <>
                 <button type="button" 
@@ -40,10 +46,12 @@ export function MenuItem(props) {
                 </button>
                 <Dropdown depthLevel={props.depthLevel}
                             submenus={items.submenu}
-                            dropdown={dropdown} />
+                            dropdown={dropdown} 
+                            setIsNavbarExpanded={props.setIsNavbarExpanded}/>
             </>
             ) : (
-                <a href={items.url}>{items.title}</a>
+                items.url ? <a href={items.url}>{items.title}</a>
+                : <Link to={items.link}>{items.title}</Link>
             )}
         </li>
     );

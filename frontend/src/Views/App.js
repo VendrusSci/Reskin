@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { CreateSkin } from './Skin Admin/CreateSkin.js';
 import { UpdateSkin} from './Skin Admin/UpdateSkin.js';
@@ -17,7 +17,6 @@ function App() {
       <header>
         <Navbar/>
       </header>
-      <BrowserRouter>
         <Routes>
           <Route path="/" element={
             <CreateSkin/>}>
@@ -38,7 +37,6 @@ function App() {
             <About/>}>
           </Route>
         </Routes>
-      </BrowserRouter>
       <br/>
       <br/>
       <div className='App-footer'>

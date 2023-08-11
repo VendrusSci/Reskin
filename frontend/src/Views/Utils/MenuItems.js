@@ -8,11 +8,11 @@ export const menuItems = [
         submenu: [
             {
                 title:  'Scene Preview',
-                url:    '/scenes'
+                link:    '/scenes'
             },
             {
                 title:  'Self-Service Skin Preview',
-                url:    '/selfservice'
+                link:    '/selfservice'
             },
         ]  
     },
@@ -30,19 +30,19 @@ export const menuItems = [
         ]
     },
     {
-        title:  'Minitools',
+        title:  'Tools',
         submenu: [
             {
-                title:  'Achievement Generator',
-                url:    'https://fr-minitools.vendrus.teamfrag.net/achievement'
+                title: 'Nesting Date Calculator',
+                url:   'https://fr-minitools.vendrus.teamfrag.net/hatchcheck'
             },
             {
-                title:  'Generation Calculator',
-                url:    'https://fr-minitools.vendrus.teamfrag.net/generation'
+                title: 'Age-up Date Calculator',
+                url:   'https://fr-minitools.vendrus.teamfrag.net/agecheck'
             },
             {
-                title:  'Hatch and Hatchling Calculator',
-                url:    'https://fr-minitools.vendrus.teamfrag.net/'
+                title: 'Generation Checker',
+                url:   'https://fr-minitools.vendrus.teamfrag.net/gencheck'
             }
         ]   
     },
