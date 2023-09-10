@@ -34,10 +34,13 @@ export function SceneDropdown(props){
             <optgroup label="Coliseum Venue">
                 <option value="39684">Arena</option>
                 <option value="39686">Blooming Grove</option>
+                <option value="52050">Crystal Pools</option>
                 <option value="37028">Golem Workshop</option>
+                <option value="52051">Harpy's Roost</option>
                 <option value="44049">Kelp Beds</option>
                 <option value="41976">Mire</option>
                 <option value="39685">Sandswept Delta</option>
+                <option value="52049">Scorched Forest</option>
                 <option value="39073">Training Fields</option>
                 <option value="39683">Waterway</option>
                 <option value="43921">Woodland Path</option>

@@ -43,6 +43,14 @@ export const menuItems = [
             {
                 title: 'Generation Checker',
                 url:   'https://fr-minitools.vendrus.teamfrag.net/gencheck'
+            },
+            {
+                title: 'Exalt Level Calculator',
+                url:   'https://fr-minitools.vendrus.teamfrag.net/exaltcheck'
+            },
+            {
+                title: 'Number/Currency Coverter',
+                url:   'https://fr-minitools.vendrus.teamfrag.net/numconvert'
             }
         ]   
     },
