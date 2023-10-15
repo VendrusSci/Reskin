@@ -40,6 +40,24 @@ namespace backend.Controllers
             }
         }
 
+        [HttpGet("vista/{id}")]
+        public ActionResult GetVista(int id)
+        {
+            string filepath = $"{_config.GetValue<string>("VistaStore")}/{id}.png";
+
+            try
+            {
+                Byte[] b = System.IO.File.ReadAllBytes(filepath);
+                Response.StatusCode = (int)HttpResponseCode.OK;
+                return File(b, "image/png");
+            }
+            catch
+            {
+                Response.StatusCode = (int)HttpResponseCode.NotFound;
+                return new JsonResult(new { success = false, message = "Failed to retrieve vista image" });
+            }
+        }
+
         [HttpGet("base/{id}")]
         public ActionResult GetBase(string id)
         {

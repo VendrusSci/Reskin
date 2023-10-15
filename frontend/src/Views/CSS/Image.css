@@ -68,3 +68,41 @@
     left: 329px;
     top: 105px;
 }
+
+.Vista_wrapper {
+    position: relative;
+    min-height: 220px;
+    min-width: 144px;
+    margin-top: 20px;
+    left: -72px;
+}
+
+.VistaPreview_icon{
+    z-index: 10;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 42px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+}
+
+.VistaPreview_iconbg{
+    z-index: 9;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 42px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+}
+
+.VistaPreview_vista{
+    z-index: 2;
+    position: absolute;
+}
+
+.VistaPreview_vistabg{
+    z-index: 1;
+    position: absolute;
+}

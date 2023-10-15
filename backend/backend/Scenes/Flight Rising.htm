@@ -1,0 +1,1470 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+    Flight Rising
+  </title>
+
+<link rel="stylesheet" type="text/css" href="Flight%20Rising_files/jquery-ui-1.8.19.custom.css">
+<link rel="stylesheet" type="text/css" href="Flight%20Rising_files/2_2.css">
+
+<script type="text/javascript" src="Flight%20Rising_files/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="Flight%20Rising_files/jquery.hoverIntent.js"></script>
+<script type="text/javascript" src="Flight%20Rising_files/jquery-ui-1.9.2.js"></script>
+<script type="text/javascript" src="Flight%20Rising_files/jquery.cluetip.min.js"></script>
+<script type="text/javascript" src="Flight%20Rising_files/ed.js"></script>
+
+<link rel="stylesheet" href="Flight%20Rising_files/cookieconsent.min.css" integrity="sha256-00kGHOz9RdKF3UMt7O3Ookbg/gzvO40T0znI4awon7A=" crossorigin="anonymous">
+<script src="Flight%20Rising_files/cookieconsent.min.js" integrity="sha256-bPOd70Y8ohKatGmjL6tszdveppYZCunsUfLOq7v8JBw=" crossorigin="anonymous"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#731d08"
+    },
+    "button": {
+      "background": "#dcd6c8"
+    },
+  },
+  "position": "top",
+  "cookie": {
+    "domain": ".flightrising.com"  }
+})});
+</script>
+
+<script type="text/javascript">
+function helpMe(tut, first){
+	$('body').append('<div id="tutorial"></div>');
+	$("#tutorial").html('<img src="/images/layout/loading.gif"> loading...');
+
+	$.ajax({
+		type: "POST",
+		data: {tut: tut, ret: "title"},
+		url: "/includes/ol/tutorial.php",
+		cache:false
+	}).done(function(stuff){
+		var tuttitle = stuff;
+
+		//if(tut == "hoard"){var wval = 400;}
+		//else{wval = 400;}
+
+		var wval = 400;
+
+		$('#tutorial').dialog({
+			autoOpen: false,
+			title: tuttitle,
+			width: wval,
+			height: "auto",
+			modal: true,
+			resizable: false,
+			draggable: false,
+			closeOnEscape: false,
+			position: ['center', 100],
+			open: function(event, ui) {
+				$(".ui-dialog-titlebar-close", ui.dialog).hide();
+			}
+		});
+
+		$('#tutorial').dialog('open');
+
+		$.ajax({
+			type: "POST",
+			data: {tut: tut, ret: "modal", first: first},
+			url: "/includes/ol/tutorial.php",
+			cache:false
+		}).done(function(bodystuff){
+			$("#tutorial").html(bodystuff);
+		});
+
+
+	});
+
+
+}
+
+function pregiveStar(id)
+{
+
+	$.each(id, function(index, value){
+
+		var time = index * 7000;
+		//alert(time +":"+ value);
+		setTimeout( function(){giveStar(value)}, time);
+		//setTimeout(function(){giveStar('5')}, 3000);
+	});
+}
+
+function giveStar(id)
+{
+
+	$("#achieve_pop").html('<img src="/../../images/layout/loading.gif"> loading...');
+
+	$('#achieve_pop').dialog({
+		autoOpen: false,
+		title: "Achievement Unlocked!",
+		width: 310,
+		height: 120,
+		position: {
+			my: 'left',
+			at: 'right',
+			of: $('#logo')
+		},
+		modal: false,
+		resizable: false,
+		draggable: false,
+		closeOnEscape: false,
+		open: function(event, ui) {
+			$(".ui-dialog-titlebar-close", ui.dialog).hide();
+		}
+	});
+
+	$.ajax({
+		data: {id: id},
+		url: "/includes/ol/achieve_pop.php",
+		cache:false
+	}).done(function(stuff){
+		$('#achieve_pop').dialog('open');
+
+		$("#achieve_pop").html(stuff);
+
+		$('#achieve_pop').parent().fadeIn(1000);
+
+		$("#achieve_pop").parent().delay(5000).fadeOut(1000);
+
+
+
+		$('#overlay_ach').fadeIn(1).animate({height:'50px', width:'50px'}, 1).animate({height:'25px', width:'25px'}, 1000).fadeOut(1000);
+	});
+
+
+}
+
+var starmie = Array();
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+//CLUETIP
+$(document).ready(function() {
+	$('a.clue').cluetip({
+		width: 300,
+		height:"auto",
+		ajaxCache: true
+	});
+
+	$('a.clueitem').cluetip({
+		height:"auto",
+		showTitle:false,
+		positionBy: 'mouse',   // Sets the type of positioning: 'auto', 'mouse','bottomTop', 'topBottom', fixed'
+		topOffset: 20,       // Number of px to offset clueTip from top of invoking element
+		leftOffset: -20,       // Number of px to offset clueTip from left of invoking element
+		ajaxCache: true
+	});
+
+	$('a.cluestat').cluetip({
+		width: 180,
+		height: "auto",
+		ajaxCache: true
+	});
+
+	$('a.clue_nrg').cluetip({
+		showTitle:false,
+		width:300,
+		height: "auto"
+	});
+
+	$('a.clue_waystone').cluetip({
+		showTitle:false,
+		width:150,
+		height: "auto",
+		topOffset: 25
+	});
+
+	$('a.loginbar').cluetip({
+		splitTitle: '|',
+		showTitle:false,
+		width: 200,
+		height: 'auto',
+		leftOffset: 25
+	});
+
+	$('a.clock-tooltip').cluetip({
+		positionBy: 'fixed',
+		splitTitle: '|',
+		showTitle:false,
+		width: 140,
+		height: 'auto',
+		leftOffset: '-60px',
+		topOffset: '35px'
+	});
+
+	$('a.miniclue').cluetip({
+		splitTitle: '|',
+		showTitle:false,
+		width:100,
+		height: 'auto',
+		leftOffset: 25
+	});
+
+	$('a.miniclue_female').cluetip({
+		splitTitle: '|',
+		showTitle:false,
+		width:100,
+		height: 'auto',
+		leftOffset: 25
+	});
+
+	$('a.miniclue_male').cluetip({
+		splitTitle: '|',
+		showTitle:false,
+		width:50,
+		height: 'auto',
+		leftOffset: 25
+	});
+
+	$('a.elemclue_fire').cluetip({
+		splitTitle: '|',
+		showTitle:false,
+		width:80,
+		height: 'auto',
+		leftOffset: 25
+	});
+
+	$('a.cluehelp').cluetip({
+		splitTitle: '|',
+		showTitle:false,
+		width:'auto',
+		height: 'auto',
+		positionBy: 'mouse',
+		leftOffset: '20px'
+	});
+
+
+
+	$('a.faire_clue').cluetip({
+		positionBy: 'mouse',
+		topOffset:'30px',
+		leftOffset:'40px',
+		height:'auto',
+		ajaxCache: true
+		//tracking: true
+	});
+});
+//]]>
+</script>
+
+<script type="text/javascript">
+	function switchTo(qval)
+	{
+		if (qval)
+		{
+			document.getElementById('passwordtext').style.display="none";
+			document.getElementById('pword').style.display="inline";
+			document.getElementById('pword').focus();
+		}
+		else
+		{
+			document.getElementById('pword').style.display="none";
+			document.getElementById('passwordtext').style.display="inline";
+		}
+	}
+
+
+	///Possibly Deprecated if I do an Ajax quote
+	function getText(id,user,date)
+	{
+		var textarea = document.getElementById("message");
+		var quote = document.getElementById(id).innerHTML;
+		alert(quote);
+		// Code for IE
+		if (document.selection)
+		{
+			textarea.focus();
+			var sel = document.selection.createRange();
+			sel.text = "[quote name='"+user+"' date='"+date+"' url='main.php?p=mb&board=&page=1&id=0#"+id+"']"+quote+"[/quote]";
+		}
+
+		else
+    	{  // Code for Mozilla Firefox
+			var len = textarea.value.length;
+	    	var start = textarea.selectionStart;
+			var end = textarea.selectionEnd;
+
+
+			var scrollTop = textarea.scrollTop;
+			var scrollLeft = textarea.scrollLeft;
+
+
+        	var sel = textarea.value.substring(start, end);
+			var rep = "[quote name='"+user+"' date='"+date+"' url='main.php?p=mb&board=&page=1&id=0#"+id+"']"+quote+"[/quote]";
+        	textarea.value =  textarea.value.substring(0,start) + rep + textarea.value.substring(end,len);
+
+			textarea.scrollTop = scrollTop;
+			textarea.scrollLeft = scrollLeft;
+		}
+	}
+</script>
+
+
+
+
+
+<!-- Hiveworks v3 -->
+	<!-- BEGIN-VENATUS-AD-MANAGER -->
+	<!-- Venatus Ad Manager - Install in <HEAD> of page -->
+	<script src="Flight%20Rising_files/ad-manager.min.js" type="text/javascript" data-site-id="59b16d2346e0fb00016a7b83" data-mode="scan" async=""></script>
+	<!-- / Venatus Ad Manager -->
+	<!-- END-VENATUS-AD-MANAGER -->
+
+<style></style></head>
+
+
+
+
+	<body style="background-image: url(/images/layout/none/background.jpg);"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-top cc-color-override-603568657 cc-invisible" style="display: none;"><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure you get the best experience on our website. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="http://cookiesandyou.com/" rel="noopener noreferrer nofollow" target="_blank">Learn more</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div>
+	<div class="container">
+	<div class="banner" style="background-image:url(/images/layout/none/top-banner.jpg); position:relative;">
+	
+
+<div class="logo" id="logo" style="width:325px;"><a href="http://flightrising.com/index.php"><img border="0" src="Flight%20Rising_files/trans.png" width="312" height="140"></a></div>
+
+<div style="position:absolute; left:725px; bottom:70px; color: #e8cc9f;"></div>
+
+<div class="loginarea" id="loginarea">
+
+	
+	
+<div style="position:absolute; height:27px; width:950px; bottom:4px; right:0px;">
+  
+  	
+  
+  	<span style="position:absolute; top:8px; left:10px; text-align:left; vertical-align:middle;">
+	<a style="position:relative; margin-right:12px; font-weight:bold; display:inline-block; color:#e8cc9f" class="clock-tooltip" title="September 21, 2023 03:40">
+    <img src="Flight%20Rising_files/clock_large.png" style="vertical-align:middle; margin-right:5px;" width="15" height="15">
+	03:40    </a>
+    |
+	</span>
+	
+	<span style="position:absolute; top:8px; left:100px; text-align:left;">
+	<strong><a href="https://flightrising.com/main.php?p=active" class="loginlinks">2927 Users Online</a></strong>
+	</span>
+
+	<!--Food-->
+		<!--End Food-->
+	
+	
+			
+	<div style="position:absolute; bottom:2px; right:130px; cursor:pointer; height:20px;">
+		<a id="messcnt" class="loginlinks loginbar" title="This shows how many new messages you have. Clicking this icon will take you directly to your inbox, where you can send and receive messages with other users." style="font-size:11px; cursor:pointer;" href="https://flightrising.com/main.php?p=pm">
+		<img id="messimg" src="Flight%20Rising_files/small_message.png" width="30" height="20" align="absmiddle" border="0"> 
+		<span id="messalert" style="font-size:11px; display:inline-block; width:21px; height:19px;">
+			<div style="width:21px; height:16px; text-align:center; position:relative; padding-top:3px; ">
+				0			</div>
+		</span>
+		</a>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+		
+	<div style="position:absolute; bottom:2px; right:70px; cursor:pointer; height:20px;">
+		<a id="frensm" class="loginlinks loginbar" title="Click this icon to access your pending friend requests or view your friends list. You may accept or reject requests from this menu." style="font-size:11px; cursor:pointer;">
+		<img id="frensimg" src="Flight%20Rising_files/friends_icon.png" width="20" height="20" align="abstop" border="0"> 
+		<span id="frensalert" style="font-size:11px; display:inline-block; width:21px; height:19px;">
+			<div style="width:21px; height:16px; text-align:center; position:absolute; padding-top:3px; ">
+				0			</div>
+		</span>
+		</a>
+	</div>
+	
+	
+	
+	
+	
+	
+					
+		
+	<div style="position:absolute; bottom:2px; right:10px; cursor:pointer; height:20px;">
+		<a id="alertm" class="loginlinks loginbar" title="This lets you know how many new alerts you have. Clicking the Alerts icon will let you know about your recent clan and friend activity." style="font-size:11px; cursor:pointer;">
+		<img id="alertimg" src="Flight%20Rising_files/icon_bell.png" align="absmiddle" border="0"> 
+		<span id="alert" style="font-size:11px; display:inline-block; width:21px; height:19px;">
+			<div style="width:21px; height:16px; text-align:center; position:relative; padding-top:3px; ">
+				0			</div>
+		</span>
+		</a>
+	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+	<script type="text/javascript">
+	$(document).mouseup(function (e){
+		//var container = $("#alertwin");
+		
+		if (!$("#alertwin").is(e.target) && $("#alertwin").has(e.target).length === 0)
+		{
+			$("#alertwin").dialog('close');
+			$('#alertwin').detach();
+		}
+		
+		//var container2 = $("#logwin");
+		
+		if (!$("#logwin").is(e.target) && $("#logwin").has(e.target).length === 0)
+		{
+			$("#logwin").dialog('close');
+			$('#logwin').detach();
+		}
+		
+		
+		if (!$("#frenswin").is(e.target) && $("#frenswin").has(e.target).length === 0)
+		{
+			$("#frenswin").dialog('close');
+			$('#frenswin').detach();
+		}
+				
+	});
+	
+	$("#alertm").click(function() {
+		
+		$('body').append('<div id="alertwin" style="display:none;"></div>');
+		$("#alertwin").html('<img src="/images/layout/loading.gif"> loading...');
+		
+		$('#alertwin').dialog({
+			title: "",
+			width: 300,
+			minHeight: 25,
+			maxHeight: 200,
+			modal:false,
+			draggable:false,
+			resizable:false,
+			show: 'blind',
+			position: { 
+				my: 'right top',
+				at: 'right bottom',
+				of: $('#alertimg')
+			},
+			open: function(event, ui) { 
+				$(".ui-dialog-titlebar-close", ui.dialog).hide();
+				$(".ui-dialog-titlebar", ui.dialog).hide();
+			}
+		});
+
+		$('#alertwin').dialog('open');
+		
+		var data = '';
+		$.ajax({
+			type: "POST",
+			data: data,
+			url: "includes/ol/alerts.php",
+			cache:false
+		}).done(function(stuff){
+			$("#alertwin").html(stuff);
+
+			// clear alert count client side
+			$("#alert div").text("0");
+			$("#alert div").css({
+				background: 'none',
+				color: ''
+			});
+		
+		});
+		
+	});
+	
+	$("#frensm").click(function() {
+		
+		$('body').append('<div id="frenswin" style="display:none;"></div>');
+		$("#frenswin").html('<img src="/images/layout/loading.gif"> loading...');
+		
+		$('#frenswin').dialog({
+			title: "",
+			width: 300,
+			minHeight: 25,
+			maxHeight: 200,
+			modal:false,
+			draggable:false,
+			resizable:false,
+			show: 'blind',
+			position: { 
+				my: 'right top',
+				at: 'right bottom',
+				of: $('#frensimg')
+			},
+			open: function(event, ui) { 
+				$(".ui-dialog-titlebar-close", ui.dialog).hide();
+				$(".ui-dialog-titlebar", ui.dialog).hide();
+			}
+		});
+
+		$('#frenswin').dialog('open');
+		
+		var data = '';
+		$.ajax({
+			type: "POST",
+			data: data,
+			url: "includes/ol/frensreq.php",
+			cache:false
+		}).done(function(stuff){	
+			$("#frenswin").html(stuff);
+		});
+		
+	});
+	
+	</script>
+	<!--<div id="alertwin" style="display:none;"></div>	-->
+	<!--<div id="frenswin" style="display:none;"></div>	-->			
+	
+</div>   
+
+</div>
+
+	<div id="ticker" style="position:absolute; background-image:url(/images/layout/ticker_topbar.png); right:0px; top:0px; height:24px; width:285px; font-size:10px; color:#393939; overflow:hidden;">
+
+			<div class="rotating-item" id="tick1" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/tomo.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://flightrising.com/main.php?p=tradepost&amp;lot=trivia">Test your trivia skills with Tomo!</a>
+		</div>
+				<div class="rotating-item" id="tick2" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/deviant.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://flightrising.deviantart.com/">Flight Rising Deviantart: Share Your Art!</a>
+		</div>
+				<div class="rotating-item" id="tick3" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/tumblr.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://flightrising.tumblr.com/">Follow Flight Rising on Tumblr</a>
+		</div>
+				<div class="rotating-item" id="tick4" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/Bug.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://flightrising.com/main.php?p=mb&amp;board=bug">Found a bug? Tell us about it!</a>
+		</div>
+				<div class="rotating-item" id="tick5" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/heart_big.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://flightrising.com/main.php?p=bestiary">Bond with your familiars daily for rewards.</a>
+		</div>
+				<div class="rotating-item" id="tick6" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/feed.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://flightrising.com/main.php?p=gather">Well-fed clans earn daily bonuses.</a>
+		</div>
+				<div class="rotating-item" id="tick7" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/status.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="https://www1.flightrising.com/site/dev-tracker/1?source=site+status">Keep up to date on the status of FR!</a>
+		</div>
+				<div class="rotating-item" id="tick8" style="position: absolute; top: 2px; left: 15px; display: none;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/swipp2.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://www1.flightrising.com/trading/swipp">Meet Pipp and Tripp at the Swap Stand!</a>
+		</div>
+				<div class="rotating-item" id="tick9" style="position: absolute; top: 2px; left: 15px; opacity: 0.0999691;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/cosmo-gecko.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://www1.flightrising.com/trading/baldwin">Create new familiars at Baldwin's Brew.</a>
+		</div>
+				<div class="rotating-item" id="tick10" style="position: absolute; top: 2px; left: 15px; opacity: 0.900031;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/25763.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="https://flightrising.zendesk.com/hc/en-us">Flight Rising Knowledge Base</a>
+		</div>
+				<div class="rotating-item" id="tick11" style="display:none; position:absolute; top:2px; left:15px;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/coatl-hearts.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://www1.flightrising.com/merch">Official Flight Rising merch!</a>
+		</div>
+				<div class="rotating-item" id="tick12" style="display:none; position:absolute; top:2px; left:15px;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/progens-star.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="http://www1.flightrising.com/support/dragon-restoration">Restore your progenitor dragons!</a>
+		</div>
+				<div class="rotating-item" id="tick13" style="display:none; position:absolute; top:2px; left:15px;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/drgshr.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="https://www1.flightrising.com/forums/drs/3272304#post_3272304">Theme Week: Paladins &amp; Clerics</a>
+		</div>
+				<div class="rotating-item" id="tick14" style="display:none; position:absolute; top:2px; left:15px;">
+			<span style="display:inline-block; height:15px; width:15px; margin-right:10px;"><img src="Flight%20Rising_files/7.png" height="15" width="15" style="vertical-align:middle;"></span>
+			<a style="color:#393939; text-decoration:none; line-height:15px; vertical-align:middle;" href="https://flightrising.com/main.php?p=dominance">The Shadow flight is dominating!</a>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+
+	$(window).load(function() { //start after HTML, images have loaded
+		var InfiniteRotator =
+		{
+			init: function()
+			{
+				//initial fade-in time (in milliseconds)
+				var initialFadeIn = 1000;
+				//interval between items (in milliseconds)
+				var itemInterval = 13000;
+				//cross-fade time (in milliseconds)
+				var fadeTime = 2500;
+				//count number of items
+				var numberOfItems = $('.rotating-item').length;
+				//set current item
+				var currentItem = 0;
+				//show first item
+				$('.rotating-item').eq(currentItem).fadeIn(initialFadeIn);
+				//loop through the items
+				var infiniteLoop = setInterval(function(){
+					$('.rotating-item').eq(currentItem).fadeOut(fadeTime);
+
+					if(currentItem == numberOfItems -1){
+						currentItem = 0;
+					}else{
+						currentItem++;
+					}
+					$('.rotating-item').eq(currentItem).fadeIn(fadeTime);
+
+				}, itemInterval);
+			}
+		};
+
+		InfiniteRotator.init();
+
+	});
+	</script>
+	
+<div id="usertab" style="position:absolute; background-image:url(/images/layout/user_module_bg.png); right:0px; bottom:31px; height:112px; width:285px;">
+	<span style="width:60px; height:60px; display:inline-block; position:absolute; top:10px; left:10px; background-color:#FFF;" id="ltavtr">
+		<a href="https://flightrising.com/main.php?p=lair&amp;tab=userpage&amp;id=4101"><img src="Flight%20Rising_files/112900p.png" height="60" width="60" style="border:1px solid #000;"></a>
+	</span>
+	
+			<span style="width:60px; height:60px; display:inline-block; position:absolute; top:71px; left:11px;">
+			<img src="Flight%20Rising_files/earth_small.png" srcset="Flight%20Rising_files/earth_small.png 1x, Flight%20Rising_files/earth_large.png 2x" height="60" width="60">
+		</span>
+			<span style="width:185px; height:20px; display:inline-block; position:absolute; top:7px; left:85px; ">       
+		<a href="https://flightrising.com/main.php?p=lair&amp;tab=userpage&amp;id=4101"><span style="color:#731d08; font-size:15px; font-weight:bold;">Vendrus</span></a>
+		<img src="Flight%20Rising_files/down_arrow.png" width="15" height="15" id="logbutton" style="vertical-align:text-bottom; cursor:pointer;">
+		
+		<script type="text/javascript">
+
+		$("#logbutton").click(function() {
+			$('body').append('<div id="logwin" style="display:none;"></div>');
+			$("#logwin").html('<img src="/images/layout/loading.gif"> loading...');
+			
+			$('#logwin').dialog({
+				title: "",
+				width: 135,
+				minHeight: 25,
+				maxHeight: 200,
+				modal:false,
+				draggable:false,
+				resizable:false,
+				show: 'blind',
+				position: { 
+					my: 'left top',
+					at: 'left top',
+					of: $('#logbutton')
+				},
+				open: function(event, ui) { 
+					$(".ui-dialog-titlebar-close", ui.dialog).hide();
+					$(".ui-dialog-titlebar", ui.dialog).hide();
+				}
+			});
+
+			$('#logwin').dialog('open');
+			
+			$.ajax({
+				type: "POST",
+				data: '',
+				url: "includes/ol/user_window.php",
+				cache:false
+			}).done(function(stuff){	
+				$("#logwin").html(stuff);
+			});
+			
+		});
+		
+		
+		
+		</script>
+	
+		
+	</span>
+	
+	
+	
+	<span style="text-align:left; cursor:default; position:absolute; left:210px; bottom:3px;">
+		<a class="loginlinks loginbar" style="color:#731d08;" href="https://www1.flightrising.com/achievements" title="Achievement Points: This number indicates the cumulative score of all achievements you have completed. It is merely a tracker of your progress, but completing achievements can also reward you in other ways! Clicking this icon will take you to your Achievements.">
+			<span style="position:relative; height:25px; width:25px; display:inline-block;">
+				<img src="Flight%20Rising_files/icon_achievement_points.png" width="20" height="20" border="0" align="absmiddle">
+			</span>
+			<span style="font-size:11px;">
+				744			</span>
+		</a>
+	</span>
+	
+	
+	
+	<span style="position:absolute; left:210px; top:57px; text-align:left;" id="bstcount">
+			
+	<a class="loginlinks loginbar" style="color:#731d08; font-size:11px;" title="This shows how many familiars your clan has befriended. This number increases with each unique new familiar you have in your hoard or accompanying your dragons. Clicking this icon will take you directly to your Bestiary." href="https://flightrising.com/main.php?p=bestiary">
+	<img src="Flight%20Rising_files/icon_bestiary.png" width="20" height="20" border="0" align="absmiddle"> 1168	</a>
+	
+	</span>
+	
+	
+		
+	<span style="position:absolute; left:85px; display:inline-block; top:28px; width:185px; height:26px;">
+    <a rel="includes/ol/nrg_tooltip.php?percent=100&amp;wellfed=3" class="clue_nrg">
+	
+    <div style="position:absolute; top:0px; left:0px; width:185px; background-image:url(images/bars/avg_back.png); height:20px;">
+    	<span style="position:absolute; text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF, 0 0 0.2em #FFF; margin-top:2px; text-align:center; font-weight:bold; width:180px; margin-right:auto; margin-left:auto; z-index:2;">100%</span>
+    	<div style="width:185px; overflow:hidden; position:relative; background-image:url(images/bars/avg_energy.png); height:20px;">
+		</div>
+    </div>
+    
+    <img style="position:absolute; top:20px; left:0px;" border="0" src="Flight%20Rising_files/day3bar.png" width="185" height="6"> 
+    
+    </a>
+	</span>
+	
+	<span style="text-align:left; cursor:default; display:inline-block; position:absolute; left:90px; top:60px;">
+		<a class="loginbar loginlinks" title="This is how much treasure you have collected in your lair." onclick="window.location='main.php?p=hoard'" style="color:#731d08; cursor:pointer;">
+		<img src="Flight%20Rising_files/icon_treasure.png" border="0" align="absmiddle"> 
+		
+                	<span id="user_treasure" style="font-size:11px;">80151</span>
+			        </a>
+	</span>
+	
+	<span style="text-align:left; cursor:default; display:inline-block; position:absolute; left:90px; bottom:3px;">
+		<a class="loginlinks loginbar" title="Gems are used to upgrade your account and purchase special items." onclick="window.location='main.php?p=ge'" style="color:#731d08; cursor:pointer;"> 
+		<img src="Flight%20Rising_files/icon_gems.png" width="20" height="20" border="0" align="absmiddle" style="cursor:pointer;"> 
+		<span id="user_gems" style="font-size:11px;">78</span>
+		</a>           
+		<!--<input style="width:40px; height:20px; font-size:10px; font-weight:bold; color:#000; background-color:#f4f4f4; border:solid 1px #000; -moz-border-radius:0.4em; -khtml-border-radius:0.4em; -webkit-border-radius:0.4em; border-radius:0.4em;" type="button" name="refill" value="Add" onclick="window.location='main.php?p=ge'" />-->
+	</span>
+	</div>
+
+<div id="achieve_pop" style="display:none; overflow:hidden;"></div>
+
+<!--End Banner-->
+</div>
+
+<div class="contentcontainer">
+
+<div class="leftcolumn">
+
+<img src="Flight%20Rising_files/under_shadow.png" width="200px" height="3px" style="position:absolute; visibility:hidden; z-index:10;">
+
+	<div style="position:relative; width:180px; margin:10px; margin-top:8px;">
+
+		<script type="text/javascript">
+	function navDrill(divid) {
+		var div = document.getElementById(divid);
+		if (div.style.display == "inline") {
+			div.style.display = "none";
+			document.getElementById(divid + "+").innerHTML = "+";
+		} else {
+			div.style.display = "inline";
+			document.getElementById(divid + "+").innerHTML = "-";
+		};
+	};
+</script>
+<style type="text/css">
+	.navdrill {
+		display: none;
+		margin-left: 25px;
+	}
+	.navbar_drill {
+		font-size:10px;
+		display:block;
+		margin-left:30px;
+		color:#731d08;
+	}
+	.navbar_inline {
+		font-size:12px;
+		display:inline;
+		color:#731d08;
+		font-weight: bold;
+	}
+	.navbarhover:hover {
+		background: url(/images/layout/revamp/left_arrow_hover_large.png);
+		background-size: 187px 31px;
+	}
+</style>
+	<script type="text/javascript">
+	if (document.images) 
+	{
+		var clan_hover = new Image();
+		clan_hover.src='/images/layout/header_clan_hover.png';
+		var shop_hover = new Image();
+		shop_hover.src='/images/layout/header_shop_hover.png';
+		var play_hover = new Image();
+		play_hover.src='/images/layout/header_play_hover.png';
+		var library_hover = new Image();
+		library_hover.src='/images/layout/header_library_hover.png';
+	}
+	</script>
+		
+		<a href="https://flightrising.com/main.php?p=clanhome">
+	<img src="Flight%20Rising_files/left_clan_small.png" class="navbarhover" srcset="Flight%20Rising_files/left_clan_small.png 1x, Flight%20Rising_files/left_clan_large.png 2x" border="0" width="187" height="31" style="margin-left:-3px; margin-top:10px; margin-bottom:3px;">
+	</a>
+	  
+	<a class="navbar" href="https://www1.flightrising.com/lair"><span class="navbar-glow-hover">Dragon Lair</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=lair&amp;id=4101&amp;tab=hatchery"><span class="navbar-glow-hover">Nesting Grounds</span></a>
+
+	<span style="position:relative; display:inline-block">
+	<a class="navbar" href="https://www1.flightrising.com/gathering"><span class="navbar-glow-hover">Gather Items</span></a>
+
+	
+		
+	
+	</span>
+
+	<a class="navbar" href="https://flightrising.com/main.php?p=lair&amp;tab=userpage&amp;id=4101"><span class="navbar-glow-hover">Clan Profile</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/hoard"><span class="navbar-glow-hover">Hoard</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/bestiary"><span class="navbar-glow-hover">Bestiary</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=pm"><span class="navbar-glow-hover">Messages</span></a>
+		<a class="navbar" href="https://www1.flightrising.com/achievements"><span class="navbar-glow-hover">Achievements</span></a>
+	
+		<a href="https://flightrising.com/main.php?p=shophome">
+	<img src="Flight%20Rising_files/left_shop_small.png" class="navbarhover" srcset="Flight%20Rising_files/left_shop_small.png 1x, Flight%20Rising_files/left_shop_large.png 2x" border="0" width="187" height="31" style="margin-left:-3px; margin-top:10px; margin-bottom:3px;">
+	</a>
+		<a class="navbar" href="https://www1.flightrising.com/buy-gems"><span class="navbar-glow-hover">Purchase Gems</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/merch" target="_blank"><span class="navbar-glow-hover">Merch</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/market"><span class="navbar-glow-hover">Marketplace</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=ah"><span class="navbar-glow-hover">Auction House</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=tradepost"><span class="navbar-glow-hover">Trading Post</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=crossroads"><span class="navbar-glow-hover">Crossroads</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=skins"><span class="navbar-glow-hover">Custom Skins</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/exchange"><span class="navbar-glow-hover">Grand Exchange</span></a>
+	
+		<a href="https://flightrising.com/main.php?p=playhome">
+	<img src="Flight%20Rising_files/left_play_small.png" class="navbarhover" srcset="Flight%20Rising_files/left_play_small.png 1x, Flight%20Rising_files/left_play_large.png 2x" border="0" width="187" height="31" style="margin-left:-3px; margin-top:10px; margin-bottom:3px;">
+	</a>
+		<a class="navbar" href="https://flightrising.com/main.php?p=faire"><span class="navbar-glow-hover">Fairgrounds</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=battle"><span class="navbar-glow-hover">Coliseum</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=dominance"><span class="navbar-glow-hover">Dominance</span></a>
+	<!--<a class="navbar" href="#">Adventure</a>-->
+	
+		<a href="https://flightrising.com/main.php?p=libraryhome">
+	<img src="Flight%20Rising_files/left_library_small.png" class="navbarhover" srcset="Flight%20Rising_files/left_library_small.png 1x, Flight%20Rising_files/left_library_large.png 2x" border="0" width="187" height="31" style="margin-left:-3px; margin-top:10px; margin-bottom:3px;">
+	</a>
+		<a class="navbar" href="https://flightrising.com/main.php?p=mb"><span class="navbar-glow-hover">Forums</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/site/dev-tracker"><span class="navbar-glow-hover">Dev Tracker</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/waystone"><span class="navbar-glow-hover">Which Waystone</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/world-map"><span class="navbar-glow-hover">World Map</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=search"><span class="navbar-glow-hover">Search</span></a>
+    <a class="navbar" href="https://www1.flightrising.com/dressing"><span class="navbar-glow-hover">Dressing Room</span></a>
+    <a class="navbar" href="https://flightrising.com/main.php?p=scrying"><span class="navbar-glow-hover">Scrying Workshop</span></a>
+	<a class="navbar" href="https://www1.flightrising.com/game-database"><span class="navbar-glow-hover">Game Database</span></a>
+	<a class="navbar" href="https://flightrising.com/main.php?p=wiki"><span class="navbar-glow-hover">Encyclopedia</span></a>
+    <a class="navbar" href="https://www1.flightrising.com/support"><span class="navbar-glow-hover">Support</span></a>
+	
+	
+		<div id="skybanner" class="skybanner" style="margin-bottom:10px; margin-top:15px; overflow:hidden;">
+		<!-- BEGIN-SKYBANNER -->
+		<!--
+################################################
+SCREENSHOT FROM HERE DOWN WHEN REPORTING BAD ADS
+################################################
+-->
+
+		<!-- flightrising.com - 160x600 Static (5b8ea18346e0fb0001373716) - 160x600 - Place in <BODY> of page where ad should appear -->
+		<div class="vm-placement" data-id="5b8ea18346e0fb0001373716"></div>
+		<!-- / flightrising.com - 160x600 Static (5b8ea18346e0fb0001373716) -->
+		<!--
+####################################
+END SCREENSHOT FOR REPORTING BAD ADS
+####################################
+-->		<!-- END-SKYBANNER -->
+		</div>
+		<!--<div class="skybanner"></div>-->
+		<div style="width:80px; height:10px;"></div>
+		<!--End Left Column-->
+	</div>
+
+</div>
+
+<div class="main">
+<!--START CODEMEGEDDON-->
+
+<img src="Flight%20Rising_files/under_shadow.png" width="750px" height="3px" style="position:absolute; visibility:hidden; z-index:10;">
+<img src="Flight%20Rising_files/internal_bg.jpg" style="position:absolute; right:0px;" id="internal_bg">
+<div style="position:relative; width:730px; margin:10px;" id="super-container">
+<script type="text/javascript">
+	window.coliFeatureFlags = {"access":true,"betaBadge":false,"pvp":false,"showBuildInfo":false,"abilitiesAndStats":true,"console":false};
+</script>
+	
+	<link rel="stylesheet" type="text/css" href="Flight%20Rising_files/content_template.css">
+	
+	<div id="pl_blinkDiv">
+		<a href="https://flightrising.com/" class="pl_blink">
+			Home
+		</a>
+				»
+		<a href="https://www1.flightrising.com/play-home" class="pl_blink">
+			Play Home		</a>
+		        »
+		<a href="https://flightrising.com/main.php?p=battle" class="pl_rlink">
+			The Coliseum		</a>
+	</div>
+	
+	<div id="pl_header">
+		<!--
+		<a href="https://www1.flightrising.com/play-home">
+			<img src="/images/layout/button_back.png" id="pl_backButton">
+		</a>
+		-->
+		<span id="pl_headerBig" style="left:0;">
+			The Coliseum		</span>
+		<span id="pl_headerSmall" style="left:0;">
+			Outfit your dragons for battle and challenge a variety of foes for glory and treasure!		</span>
+	</div>
+	
+	
+	<div id="pl_fullscreenContainer">
+	    <div id="pl_content" style="height: 632px;">
+	        <!-- Raw included here for now b/c it is short & we need to be able to push changes live -->
+<style type="text/css">
+.cp_button {
+	cursor: pointer;
+}
+
+#controlPanel {
+	background-image: url(&quot;/content/battle/images/bottomBar/ui_bottombar_bg.png&quot;);
+	background-repeat: no-repeat;
+	background-position: 0px 45px;
+	text-align: center;
+	width: 100%;
+	height: 65px;
+}
+
+#pl_fullscreenContainer.fullscreen {
+	width:100%;
+	height:100%;
+	background-color: black;
+	position:relative;
+}
+
+#pl_content.fullscreen {
+	background-color: white;
+	display:inline-block;
+	position:absolute;
+}
+
+body.fullscreen {
+	overflow: hidden;
+}
+
+#coli_tooltip {
+	min-width: 275px;
+	min-height: 130px;
+	max-width: 275px;
+	width: 275px;
+	z-index: 100;
+	position: absolute;
+	box-shadow: rgba(0, 0, 0, 0.498039) 1px 1px 6px;
+	visibility: hidden;
+}
+
+.coli-stat-buff {
+	color: lime;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+}
+
+.coli-stat-nerf  {
+	color: red;
+	font-weight: bold;
+	text-shadow: 1px 1px black;
+}
+
+#coli_condition_tooltip {
+	border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    padding: 10px;
+    font-size: 12px;
+    box-shadow: rgba(0,0,0,0.5) 1px 1px 6px;
+    z-index: 100;
+    width: 180px; /* + 10px x 2 = 200px */
+    position:absolute;
+    left: 113px;
+    bottom: 260px;
+}
+
+#coli_condition_tooltip_name {
+	font-weight: bold;
+}
+
+#coli_condition_tooltip_desc {
+	margin-top: 5px;
+}
+
+#coli_condition_tooltip_icon {
+	float: right;
+}
+</style>
+
+
+<style type="text/css">
+	#pvp_div {
+		position: fixed;
+		left: 20px;
+		top: 20px;
+		z-index: 100;
+		background-color: white;
+		border: 1px solid black;
+		padding: 2px;
+	}
+</style>
+
+
+
+<script type="text/javascript" src="Flight%20Rising_files/socket.io_002.js"></script>
+
+
+<script type="text/javascript">
+
+var queuedForPvp = false,
+	PVPMatchFound = false;
+
+function queueForPVP() {
+	var socket_address = "https://websockets.flightrising.com",
+		socket_enc = "/OwE59qcbEjP+yywsfvQi6uGrPv77DJ2S2kCmL5o0rWDPBKNSH08LHCaj2o2y4GJhEZ8LtF2ejZuoWPd/A+kbQ==";
+		
+	var messages = [],
+		session = false,
+		pvp_socket = io.connect(socket_address, {
+		reconnect: false,
+		'connect timeout': 5000,
+		path: '/battle_pvp/socket.io'
+	});
+	
+	var ajaxUrl = "/content/battle/public_ajax.php?a=pvp&q=true";				
+	$.ajax({
+		url: ajaxUrl,
+		success: function (result) {
+			console.info(result);
+		}
+	})
+	
+	var matched = false;
+	
+	queuedForPvp = true;
+
+	pvp_socket.on('accept', function(d) {
+		// Not yet initialized
+		pvp_socket.emit("2", [
+			socket_enc,
+			session
+		]);
+		pvp_socket.on('disconnect', function (manual) {
+			if (manual) {
+				var ajaxUrl = "/content/battle/public_ajax.php?a=pvp&q=false";				
+				$.ajax({
+					url: ajaxUrl,
+					success: function (result) {
+						console.info(result);
+					}
+				})
+				console.info("Disconnected from PVP server.");
+			};
+		});
+		pvp_socket.on("queueSize", function(d) {
+			if (!matched) {
+				// d = players in queue
+			};
+		});
+		pvp_socket.on("match", function(d) {
+			// d.opponent, d.venue.name
+			matched = true;
+			PVPMatchFound = true;
+		});
+	});
+	return function () {
+		pvp_socket.disconnect();
+		queuedForPvp = false;
+	};
+};
+
+
+</script><script type="text/javascript">
+
+	window.onBeforeColiseumNavigate = null;
+
+	function coliseumSelect(page, did) {
+		if(window.onBeforeColiseumNavigate) {
+			window.onBeforeColiseumNavigate();
+		}
+		$('#battle_page').val(page);
+		if(did && did > 0) {
+			$('#battle_did').val(did);
+		}
+		$('#coliseumSelection').submit();
+	};
+
+	function venueSelect(venueId) {
+		if(window.onBeforeColiseumNavigate) {
+			window.onBeforeColiseumNavigate();
+		}
+		$('#battle_page').val("battle");
+		$('#battle_venue').val(venueId);
+		$('#coliseumSelection').submit();
+	}
+</script>
+
+
+<script type="text/javascript">
+	function submitEpiWarningPreference() {
+		var userid = 4101 ;
+		if ($('#epicheck').is(':checked')) {
+			console.log("Submitting seizure warning preference");
+			$.ajax('/html5/epi.php?userid=' + userid);
+		}
+		$('#epi').hide();
+		$('#cnv').show();
+	}
+</script>
+
+<div id="epi" style="margin-bottom:10px; margin-right:auto; text-align: center;  display:none;  ">
+	<!-- Legacy epilepsy/photosensitivity warning -->
+<style>
+    .common-message {
+  margin: 20px auto;
+  padding: 15px;
+  width: 500px;
+  border: 1px solid #ccc;
+  background-color: #eee;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+  font-size:12px;
+}
+
+.common-message-info {
+  padding: 15px 15px 15px 75px;
+  color: #986714;
+  border-color: #986714;
+  background-color: #ffffce;
+  background-image: url(https://www1.flightrising.com/static/layout/message_icons/information.png);
+  background-repeat: no-repeat;
+  background-position: 15px center;
+}
+
+</style>
+<div class="common-message common-message-info" style="text-align:left; margin-bottom:0;">
+    <div style="text-align:center; margin-bottom:15px; font-size:125%;">
+        <strong>WARNING</strong>
+    </div>
+    <div>
+        Some of <em>Flight Rising</em>'s features (<strong>Fairgrounds games, Coliseum, World Map</strong>) utilize flashing and/or moving graphical elements. People susceptible to seizures are <strong>strongly</strong> recommended to <strong>avoid them</strong> or, if you make the choice to access them, to <strong>exercise caution</strong> as well as toggle the special effects to <strong>OFF</strong> where possible.
+    </div>
+    <div style="text-align:center; margin-top:15px;">
+        <strong>IF YOU FEEL THAT YOU ARE EXPERIENCING SYMPTOMS OF A SEIZURE, IMMEDIATELY STOP PLAYING AND CONSULT A DOCTOR.</strong>
+    </div>
+ </div>	<br><input type="checkbox" id="epicheck"> Don't show this warning again.
+	<br><br><input type="submit" value="Continue" onclick="javascript:submitEpiWarningPreference()" class="beigebutton thingbutton">
+</div>
+
+
+<!-- Begin Camp -->
+<style>
+#camp-window {
+	background: url(/content/battle/images/camp/window_captcha.png) no-repeat;
+	position: absolute;
+	left: 159px;
+	top: 50px;
+	width: 382px;
+	height: 409px;
+}
+
+#camp-window.camp-zoom {
+	top: 80px;
+	transform: scale(1.35);
+}
+
+.camp-puzzle {
+	position: absolute;
+	left: 42px;
+	top: 113px;
+	width: 300px;
+	height: 180px;
+	color:white;
+	cursor: pointer;
+}
+
+#camp-window.camp-zoom .camp-puzzle {
+	top: 109px;
+	transform: scale(1.2);
+}
+
+.camp-buff {
+	position: absolute;
+	left: 190px;
+	top: 300px;
+	width: 164px;
+	height: 85px;
+	background-repeat: no-repeat;
+}
+
+.camp-calibrator {
+	position: absolute;
+	/* this top,left should be equal to bottom right of puzzle area */
+	left: 342px;
+	top: 293px;
+	width: 1px;
+	height: 1px;
+	background-color: transparent;
+}
+
+.camp-buff-1 {
+	background-image: url(/content/battle/images/camp/bonus_str.png);
+}
+.camp-buff-2 {
+	background-image: url(/content/battle/images/camp/bonus_agi.png);
+}
+.camp-buff-3 {
+	background-image: url(/content/battle/images/camp/bonus_def.png);
+}
+.camp-buff-4 {
+	background-image: url(/content/battle/images/camp/bonus_int.png);
+}
+.camp-buff-5 {
+	background-image: url(/content/battle/images/camp/bonus_mnd.png);
+}
+.camp-buff-6 {
+	background-image: url(/content/battle/images/camp/bonus_qck.png);
+}
+.camp-buff-7 {
+	background-image: url(/content/battle/images/camp/bonus_vit.png);
+}
+.camp-buff-8 {
+	background-image: url(/content/battle/images/camp/bonus_exp.png);
+}
+
+#camp-zoom-btn {
+	position: absolute;
+	left: 390px;
+	top: 183px;
+	width: 50px;
+	height: 50px;
+	background-image: url(/content/battle/images/camp/button_zoomincaptcha.png);
+	cursor: pointer;
+}
+
+#camp-window.camp-zoom #camp-zoom-btn {
+	background-image: url(/content/battle/images/camp/button_zoomoutcaptcha.png);
+}
+
+
+</style>
+
+<div id="camp-window" style="display: none;" class="">
+	<div class="camp-calibrator"></div>
+	<div class="camp-puzzle"><img src="Flight%20Rising_files/puzzle.png"></div>
+	<div class="camp-buff camp-buff-4"></div>
+	<div id="camp-zoom-btn"></div>
+</div>
+
+<script language="javascript">
+	$('#camp-zoom-btn').click(function(evt) {
+		$('#camp-window').toggleClass('camp-zoom');
+
+		var zoomed = $('#camp-window').hasClass('camp-zoom');
+
+		$.ajax({
+			type: "POST",
+			data: {a: 'camp_zoom', zoom: (zoomed?1:0)},
+			url: "/content/battle/public_ajax.php",
+			cache:false
+		}).done(function(){});
+	});
+</script>
+
+<!-- End Camp Popup -->
+<div id="coli_tooltip" style="position: absolute; visibility: hidden; left: 213px; top: 196px;" class="cluetip ui-widget ui-widget-content ui-cluetip clue-right-rounded cluetip-rounded ui-corner-all"><div style="margin: 5px;"><div>
+	<div style="background: linear-gradient(to right, #f8f8f8 0%,#acacac 100%); padding: 8px; position: relative; word-wrap: break-word; border-top-left-radius: 4px; border-top-right-radius: 4px; min-height: 28px;">
+
+    <img src="Flight%20Rising_files/star-0.png" style="float: right;">
+		<img src="Flight%20Rising_files/496.png" width="40" height="40" style="float: left; width: 40px; height: 40px; margin: -6px 5px 0px -5px;">
+
+		<div style="color:#575757; font-weight:bold; font-size:12px;">Meditate</div>
+		
+									<div style="color:#000; font-size:11px;">Energy Stone</div>
+						</div>
+	<div style="color: #000; font-size: 11px; padding: 8px 8px 32px 8px; min-height: 70px; background: url(../images/layout/tooltips/description-1.png); background-position: top right; background-repeat: no-repeat;">
+
+	
+  The caster will focus on the surrounding magical energies, generating a
+ large amount of Breath. Reduces physical damage dealt by 75% for two 
+turns.
+	</div>
+	
+        <div style="color: #000; font-size: 11px; line-height: 14px; position: absolute; left: 0; bottom: 0; margin-left: 8px; padding: 8px 8px 8px 18px; font-weight: bold; background-image: url(/images/layout/tooltips/value.png); background-repeat: no-repeat; background-position: center left;">25</div>
+		
+	<div style="color:#000; font-size:11px; padding: 8px; position:absolute; bottom:0; right:0;">Required Level: <strong>1</strong></div>	</div>
+</div></div>
+<div id="coli_condition_tooltip" style="display:none;">
+	<div>
+		<span id="coli_condition_tooltip_name"></span>
+		<img id="coli_condition_tooltip_icon">
+	</div>
+	<div id="coli_condition_tooltip_desc"></div>	
+</div>
+
+
+<script type="text/javascript">
+	var preOptions = [
+		1,
+		1,
+		1,
+		1	];
+</script>
+		
+<canvas id="cnv" width="700" height="632" style="width: 700px; height: 632px; cursor: default;">
+	<p align="center">
+<br>
+<br>
+<img src="Flight%20Rising_files/nocanvas_top.png">
+<br>
+<br>
+<br>
+<a href="http://www.google.com/chrome"><img src="Flight%20Rising_files/nocanvas_bottom.png"></a>
+</p></canvas>
+
+<canvas id="drawingCanvas" style="display: none;" width="140" height="140"></canvas>
+
+
+
+
+
+<script type="text/javascript" src="Flight%20Rising_files/socket.io.js"></script>
+
+
+<script type="text/javascript">
+	var socket_address = "https:\/\/websockets.flightrising.com";
+	var socket_path = "\/battle1\/socket.io";
+	socket_enc = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI0MTAxIiwiaWF0IjoxNjk1MjkyODU4LCJzaGFyZCI6MSwic2NyZWVuIjoiYmF0dGxlIn0.56HGkAZGxkq7YbDQbqO2pLemKzq_oLCPU60VFgoCXtw";
+</script>	<script type="text/javascript">
+		var coliBuildInfo = {
+			id: "16\/16a3fae4041bbd6ccc89e29e7a6706d4eaf7ed61949a63488903650750068ef4\/battle_client.js"		};
+	</script>
+	<script type="text/javascript" src="Flight%20Rising_files/battle_client.js"></script>
+	
+<form id="coliseumSelection" action="/content/battle/content.php" method="POST">
+	<input type="hidden" id="battle_page" name="battle_page" value="">
+	<input type="hidden" id="battle_venue" name="battle_venue" value="">
+	<input type="hidden" id="battle_did" name="battle_did" value="">
+</form>
+
+
+<!--
+<div id="mousepos">&hearts;</div>
+-->	    </div>
+    </div>
+
+    	</div>
+<!--END CODEMEGEDDON-->
+
+<!--End Main Content-->
+</div>
+
+	<!--Clear Floats-->
+	<div class="clear"></div>
+
+<!--End Content Container-->
+</div>
+
+<!--End Container-->
+</div>
+
+<div id="bottom-banner">
+	<div id="bottom-banner-center">
+		<!-- BEGIN-BOTTOMBANNER -->
+		<!--
+################################################
+SCREENSHOT FROM HERE DOWN WHEN REPORTING BAD ADS
+################################################
+-->
+
+		<!-- FlightRising - 728x90 Static (59b6be9846e0fb00012e4725) - 728x90 - Place in <BODY> of page where ad should appear -->
+		 <div class="vm-placement" data-id="59b6be9846e0fb00012e4725"></div>
+		<!-- / FlightRising - 728x90 Static (59b6be9846e0fb00012e4725) -->
+
+		<!-- Flightrising - 728x90 Dynamic - 728x90, 970x250, 970x90 - Place in <BODY> of page where ad should appear -->
+		<!--<div class="vm-placement" data-id="6124a03fa3fb50273241cb62"></div> -->
+		<!-- / Flightrising - 728x90 Dynamic -->
+		<!--
+####################################
+END SCREENSHOT FOR REPORTING BAD ADS
+####################################
+-->		<!-- END-BOTTOMBANNER -->
+	</div>
+</div>
+<!--End Bottom Banner-->
+<div class="copybar">
+© 2013 - 2023 Stormlight Workshop. All Rights Reserved<br>
+<a style="color: #731d08;" href="https://flightrising.com/main.php?p=wiki&amp;article=81">Terms of Use</a> |
+<a style="color: #731d08;" href="https://flightrising.zendesk.com/hc/en-us/categories/201441323">Rules &amp; Policies</a> |
+<a style="color: #731d08;" href="https://flightrising.com/main.php?p=privacy">Privacy Policy</a> |
+<a style="color: #731d08;" href="https://flightrising.com/main.php?p=wiki&amp;article=74">Employment Opportunities</a> |
+<a style="color: #731d08;" href="https://flightrising.com/main.php?p=wiki&amp;article=83">Credits</a> | 
+<a style="color: #731d08;" href="https://www1.flightrising.com/support">Support</a>
+</div>
+<!--End Copybar-->
+
+<!-- Begin JQuery loading checks -->
+<script type="text/javascript">
+(function (){
+	var args='';
+
+	if (typeof jQuery == 'undefined') {
+		// by definition, no jquery = no jquery UI
+		args = 'nojquery=1&nojqueryui=1';
+	} else if (typeof jQuery.ui == 'undefined') {
+		// we have jquery, but no jquery UI
+		args = 'nojqueryui=1';
+	}
+
+	function startCheckingForRecovery() {
+
+		function recheck() {
+			++counter;
+
+			if (typeof jQuery != 'undefined' &&
+				typeof jQuery.ui != 'undefined') {
+
+				var img2 = new Image();
+				img2.src = '/js_report.php?recovered=1&recover_time='+(counter*1000);
+
+				clearInterval(intervalID);
+			} else if (counter > 60) {
+				clearInterval(intervalID);
+			}
+		}
+
+		var counter=0;
+		var intervalID = setInterval(recheck, 1000);
+
+	}
+
+	if (args != '') {
+		var img = new Image();
+		img.src = '/js_report.php?' + args;
+		startCheckingForRecovery();
+	}
+
+})();
+</script>
+<!-- End JQuery loading checks -->
+
+<!-- Page load logging -->
+
+<!-- Hiveworks -->
+
+
+<!--ZENDESK TAB-->
+
+
+		<a class="ways_button clue_waystone" href="https://www1.flightrising.com/waystone" rel="includes/ol/waystone_tooltip.php"></a>
+		
+
+
+<div id="cluetip-waitimage" style="position: absolute; display: none;"></div><div id="cluetip" style="position: absolute; display: none;"><div class="cluetip-outer" style="position: relative; z-index: 99999;"><div class="cluetip-inner ui-cluetip-content"></div></div><div class="cluetip-extra"></div></div></body></html>

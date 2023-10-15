@@ -1,0 +1,1431 @@
+@charset "utf-8";
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color:#222e3d;
+	line-height:1.2;
+}
+a {
+	text-decoration:none;
+	color: #b0734f;
+}
+body {
+	background-color: #000;
+	background-repeat: no-repeat;
+	background-position:center top;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.container {
+	margin-left:auto;
+	margin-right:auto;
+	width: 950px;
+	background-color:#FFF;
+	position:relative;
+	border-style:solid;
+	border-color:#000;
+	border-width:1px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+canvas {
+	image-rendering: optimizeSpeed;
+	-webkit-interpolation-mode: nearest-neighbor;
+}
+
+.banner {
+	height:185px;
+	width:950px;
+	position:relative;
+	background-repeat:no-repeat;
+}
+
+.logo {
+	height:140px;
+	width:312px;
+	position:absolute;
+	top: 5px;
+	left: 8px;
+}
+
+.alert{
+	color:#e8cc9f;
+	font-size:12px;
+	background-color:#731d08;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.loginarea {
+	height:32px;
+	width:950px;
+	position:absolute;
+	bottom:0px;
+	/*background-color:#731d08;*/
+	
+	/*background-image:url(../images/layout/loginbar.png);*/
+	/*background-repeat:no-repeat;*/
+	background-image:url(../images/layout/revamp/red_stripe.png);
+	
+	color: #e8cc9f; 
+}
+
+.loginform {
+	position:absolute;
+	top:3px;
+	height:50px;
+	width:283px;
+	right:5px;
+	padding: 2px;
+	text-decoration: none; 
+	color: #e8cc9f; 
+	font: 8pt tahoma;
+}
+
+.loginlinks {
+	text-decoration: none; 
+	color: #e8cc9f; 
+	font: 7.8pt tahoma; 
+	font-weight:bold;		
+}
+
+.charinfo {
+	position:absolute;
+	width:285px;
+	height:50px;
+	top: 5px;
+	right: 4px;
+}
+
+.inputText {
+	border: 1px solid #000;
+}
+
+.contentcontainer {
+	/*background-color:#eee;*/
+	/*background-color:#dad6c8;*/
+	background-image: url(../images/layout/contentbg2_1.jpg);
+	background-repeat:repeat-y;
+	background-position:center;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.leftcolumn {
+	padding: 0px;
+	width: 200px;
+	color:#000;
+	position:relative;
+	float:left;
+	/*background-color:#eee;*/
+	/*background-color: #dad6c8;*/
+}
+
+.main {
+	padding: 0px;
+	width: 750px;
+	/*background-color: #FFF;*/
+	color:#000;
+	position:relative;
+	float:right;
+	/*border: solid 1px #000;*/
+}
+
+
+
+.clear {
+	clear:both;
+}
+
+.forumlink {
+	color:#731d08;
+	text-decoration:none; 
+	font-weight:bold; 
+	font-size:12px;
+	clear:both;
+	display:inline-block;
+	margin-top:4px;
+}
+
+.textmiddle {vertical-align: text-bottom;} 
+
+.headlink {
+	text-decoration:none;
+	font-size: 18px;
+	color:#222e3d;
+	font-weight:100;
+}
+
+.newstitle {
+	background-image:url(../images/layout/redbar.jpg);
+	width:390px;
+	height:24px;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+	padding: 5px;
+	padding-left:10px;
+	color:#fae7b6;
+	font-size:18px;
+	text-align:center;
+}
+
+.news {
+	margin-left:30px;
+	margin-right:30px;
+	color:#222e3d;
+	font-family:Verdana, Arial, sans-serif;
+	font-size:10px;
+	line-height:13px;
+}
+a.newslink {
+	color: #fae7b6;
+	text-decoration:none;
+}
+
+.bottombar {
+	background-color:#731d08;
+	height: 106px;
+	width:950px;
+	position:relative;
+	vertical-align:middle;
+	padding-top: 10px;
+}
+
+.copybar {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: #dad6c8;
+  width:940px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+  font-size:10px;
+  color:#000;
+  padding:5px;
+}
+
+.skybanner {
+	background-image:url(../images/layout/ponies.png);
+	height:616px;
+	width:160px;
+	margin-left:auto;
+	margin-right:auto;
+	padding:6px;
+}
+
+fieldset div {
+	/*margin:0.3em 0;*/
+	clear:both;
+}
+.regform {
+	margin-left:auto;
+	margin-right:auto;
+}
+label {
+	float:left;
+	width:10em;
+	text-align:right;
+	margin-right:1em;
+}
+legend {
+	color:#731d08;
+	font-size:12px;
+}
+legend span {
+	width:10em;
+	text-align:right;
+}
+.input_reg {
+	padding:0.15em;
+	width:10em;
+	border:1px solid #ddd;
+	background:#fafafa;
+	font:bold 10px arial, sans-serif;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+.input_reg:hover {
+	border-color:#000;
+	background:#f6f6f6;
+}
+.input_reg:focus {
+	border-color:#000;
+	background:#f6f6f6;
+}
+
+
+fieldset {
+	border:1px solid #731d08;
+	padding:0 0.5em 0.5em;
+}
+
+.mb_button {
+	border:solid 1px #731d08;
+	background-color: #dcd6c8;
+	color: #000;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+.mb_buttonDis {
+	border:solid 1px #731d08;
+	background-color:#dcd6c8;
+	color: #999;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	font-family:Verdana, Geneva, sans-serif;
+}
+
+/* button testing */
+.redbutton.anybutton {
+border:0px;
+background-color: #731d08;
+padding: 10px 20px 10px;
+color: #f5f2eb;
+font-weight: bold;
+font-size: 13px;
+line-height: 1;
+-moz-border-radius: 5px;
+-khtml-border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow: 0 1px 3px #999;
+-webkit-box-shadow: 0 1px 3px #999;
+border-radius:5px;
+text-shadow: 0 -1px 1px #222;
+border-bottom: 1px solid #222;
+position: relative;
+cursor: pointer;
+}
+
+.anybutton:hover {
+background-color: #4c1407; color: #f5f2eb;
+}
+
+.anybutton:active {
+top: 1px;
+}
+
+.beigebutton.thingbutton {
+border:0px;
+background-color: #dcd6c8;
+padding: 10px 20px 10px;
+color: #731d08;
+font-weight: bold;
+font-size: 13px;
+line-height: 1;
+-moz-border-radius: 5px;
+-khtml-border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow: 0 1px 3px #999;
+-webkit-box-shadow: 0 1px 3px #999;
+border-radius:5px;
+text-shadow: 0 1px 1px #FFF;
+border-bottom: 1px solid #222;
+position: relative;
+cursor: pointer;
+}
+
+.thingbutton:hover {
+background-color: #bfb9ac; color: #731d08;
+}
+
+.thingbutton:active {
+top: 1px;
+}
+
+.greybutton.stopbutton {
+border:0px;
+background-color: #8d716b;
+padding: 10px 20px 10px;
+color: #b5a69d;
+font-weight: bold;
+font-size: 13px;
+line-height: 1;
+-moz-border-radius: 5px;
+-khtml-border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-box-shadow: 0 1px 3px #999;
+-webkit-box-shadow: 0 1px 3px #999;
+border-radius:5px;
+text-shadow: 0 1px 1px #000;
+border-bottom: 1px solid #222;
+position: relative;
+cursor: pointer;
+}
+
+#unitip {
+	background-color: #FFF;
+	position: absolute;
+	z-index: 1000;
+	top: -1000px;
+	color: #222e3d;
+	font: 10px Verdana, Arial, sans-serif;
+	display: none;
+	border: 1px solid #731d08;
+	padding: 3px;
+	max-width:300px;
+}
+
+
+.Maize {color: black; background:#fffdea; }
+.Dust {color: black; background:#9c9c9e; }
+.Moss {color: white; background:#7e7745; }
+.Goldenrod {color: black; background:#bea55d; }
+.Amber {color: black; background:#c18e1b; }
+.Honey {color: black; background:#d1b300; }
+.Lemon {color: black; background:#ffe63b; }
+.Yellow {color: black; background:#f9e255; }
+.Grapefruit {color: black; background:#f7ff6f; }
+.Banana {color: black; background:#ffec80; }
+.Sanddollar {color: black; background:#ebe7ae; }
+.Flaxen {color: black; background:#fde9ae; }
+.Grey {color: white; background:#808080; }
+.Ivory {color: black; background:#ffd297; }
+.Buttercup {color: black; background:#f6bf6b; }
+.Gold {color: black; background:#e8af49; }
+.Metals {color: black; background:#d1b046; }
+.Marigold {color: black; background:#ffb43b; }
+.Sunshine {color: black; background:#fa912b; }
+.Saffron {color: black; background:#ff8400; }
+.Sunset {color: black; background:#ffa248; }
+.Peach {color: black; background:#ffb576; }
+.Cantaloupe {color: black; background:#ff984f; }
+.Smoke {color: black; background:#9494a9; }
+.Orange {color: white; background:#d5602b; }
+.Bronze {color: white; background:#b2560d; }
+.Terracotta {color: white; background:#b23b07; }
+.Carrot {color: black; background:#ff5500; }
+.Fire {color: white; background:#ef5c23; }
+.Pumpkin {color: black; background:#ff6840; }
+.Tangerine {color: black; background:#ff7360; }
+.Cinnamon {color: white; background:#c05a39; }
+.Caramel {color: white; background:#c67047; }
+.Sand {color: white; background:#b27749; }
+.Gloom {color: white; background:#535264; }
+.Tan {color: black; background:#c49a70; }
+.Beige {color: black; background:#cabba2; }
+.Stone {color: white; background:#827a64; }
+.Taupe {color: white; background:#6d665a; }
+.Slate {color: white; background:#564d48; }
+.Driftwood {color: white; background:#766359; }
+.Latte {color: white; background:#977b6c; }
+.Dirt {color: white; background:#76483f; }
+.Clay {color: white; background:#603f3d; }
+.Sable {color: white; background:#57372c; }
+.Lead {color: white; background:#413c3f; }
+.Umber {color: white; background:#2f1e1a; }
+.Soil {color: white; background:#5a4534; }
+.Hickory {color: white; background:#725639; }
+.Tarnish {color: white; background:#855c32; }
+.Ginger {color: white; background:#90532b; }
+.Brown {color: white; background:#8e5b3f; }
+.Chocolate {color: white; background:#563012; }
+.Auburn {color: white; background:#7b3c1d; }
+.Copper {color: white; background:#a44b28; }
+.Rust {color: white; background:#8b3220; }
+.Shale {color: white; background:#4d4850; }
+.Tomato {color: white; background:#ba311c; }
+.Vermilion {color: white; background:#e22d17; }
+.Ruby {color: white; background:#cd000e; }
+.Cherry {color: white; background:#aa0024; }
+.Crimson {color: white; background:#850012; }
+.Garnet {color: white; background:#5b0f14; }
+.Sanguine {color: white; background:#2e0002; }
+.Blood {color: white; background:#451717; }
+.Maroon {color: white; background:#652127; }
+.Berry {color: white; background:#8b272c; }
+.Flint {color: white; background:#626268; }
+.Red {color: white; background:#c1272d; }
+.Strawberry {color: white; background:#de3235; }
+.Cerise {color: white; background:#a22929; }
+.Carmine {color: white; background:#b13a3a; }
+.Brick {color: white; background:#9a534d; }
+.Coral {color: black; background:#cc6f6f; }
+.Blush {color: black; background:#ffa2a2; }
+.Cottoncandy {color: black; background:#eb7997; }
+.Watermelon {color: black; background:#db518d; }
+.Magenta {color: black; background:#e934aa; }
+.Charcoal {color: white; background:#545454; }
+.Fuchsia {color: white; background:#ec0089; }
+.Raspberry {color: white; background:#8a0249; }
+.Wine {color: white; background:#4d0f28; }
+.Mauve {color: white; background:#9c4875; }
+.Pink {color: black; background:#e77fbf; }
+.Bubblegum {color: black; background:#eaa9ff; }
+.Rose {color: black; background:#ffd6f6; }
+.Pearl {color: black; background:#fbe9f8; }
+.Coal {color: white; background:#4b4946; }
+.Oilslick {color: white; background:#342b25; }
+.Cream {color: black; background:#ffefdc; }
+.Black {color: white; background:#333333; }
+.Obsidian {color: white; background:#1d2224; }
+.Eldritch {color: white; background:#252a25; }
+.Midnight {color: white; background:#252735; }
+.Shadow {color: white; background:#3a2e44; }
+.Blackberry {color: white; background:#4b294f; }
+.Mulberry {color: white; background:#6e235d; }
+.Plum {color: white; background:#853390; }
+.Wisteria {color: white; background:#724e7b; }
+.Thistle {color: black; background:#8f7c8b; }
+.Antique {color: black; background:#d8d6cd; }
+.Fog {color: black; background:#a593b0; }
+.Mist {color: black; background:#e1ceff; }
+.Lavender {color: black; background:#cca4e0; }
+.Heather {color: black; background:#9777bd; }
+.Purple {color: white; background:#a261cf; }
+.Orchid {color: black; background:#d950ff; }
+.Amethyst {color: white; background:#993bd0; }
+.Nightshade {color: white; background:#782eb2; }
+.Violet {color: white; background:#643f9c; }
+.Grape {color: white; background:#570fc0; }
+.White {color: black; background:#ffffff; }
+.Royal {color: white; background:#4d2c89; }
+.Eggplant {color: white; background:#332b65; }
+.Iris {color: white; background:#535195; }
+.Storm {color: black; background:#757adb; }
+.Twilight {color: white; background:#474aa0; }
+.Indigo {color: white; background:#2d237a; }
+.Sapphire {color: white; background:#0d095b; }
+.Navy {color: white; background:#212b5f; }
+.Cobalt {color: white; background:#003484; }
+.Ultramarine {color: white; background:#1c51e7; }
+.Moon {color: black; background:#d8d7d8; }
+.Blue {color: white; background:#324ba9; }
+.Periwinkle {color: white; background:#4866d5; }
+.Lapis {color: white; background:#2b84ff; }
+.Splash {color: black; background:#6392DF; }
+.Cornflower {color: black; background:#75a8ff; }
+.Sky {color: black; background:#aec8ff; }
+.Stonewash {color: black; background:#7895c1; }
+.Overcast {color: white; background:#444f69; }
+.Steel {color: white; background:#556979; }
+.Denim {color: white; background:#2f4557; }
+.Ice {color: black; background:#ebefff; }
+.Abyss {color: white; background:#0d1e24; }
+.Phthalo {color: white; background:#0b2d46; }
+.Azure {color: white; background:#0a3d67; }
+.Caribbean {color: white; background:#0086ce; }
+.Teal {color: white; background:#2b768f; }
+.Cerulean {color: white; background:#00b4d6; }
+.Cyan {color: black; background:#00fff0; }
+.Robin {color: black; background:#9aeaef; }
+.Aqua {color: black; background:#72c4c4; }
+.Turquoise {color: white; background:#3aa0a1; }
+.Orca {color: black; background:#e0dfff; }
+.Spruce {color: black; background:#8bbbb2; }
+.Pistachio {color: black; background:#e2ffe6; }
+.Seafoam {color: black; background:#b2e2bd; }
+.Mint {color: black; background:#9affc7; }
+.Jade {color: white; background:#61ab89; }
+.Spearmint {color: white; background:#148e67; }
+.Thicket {color: white; background:#005e48; }
+.Peacock {color: white; background:#1f4739; }
+.Emerald {color: white; background:#20603f; }
+.Shamrock {color: white; background:#236925; }
+.Platinum {color: black; background:#c8bece; }
+.Jungle {color: white; background:#1e361a; }
+.Hunter {color: white; background:#1d2715; }
+.Forest {color: white; background:#425035; }
+.Camo {color: white; background:#51684c; }
+.Algae {color: black; background:#97af8b; }
+.Swamp {color: white; background:#687f67; }
+.Avocado {color: white; background:#567c34; }
+.Green {color: white; background:#629c3f; }
+.Fern {color: black; background:#7ece73; }
+.Mantis {color: black; background:#99ff9c; }
+.Silver {color: black; background:#bbbabf; }
+.Pear {color: black; background:#8ecd55; }
+.Leaf {color: black; background:#a5e32d; }
+.Radioactive {color: black; background:#c6ff00; }
+.Honeydew {color: black; background:#d0e672; }
+.Peridot {color: black; background:#e8ffb5; }
+.Chartreuse {color: black; background:#b4cd3c; }
+.Spring {color: white; background:#a9a832; }
+.Crocodile {color: white; background:#828335; }
+.Olive {color: white; background:#697135; }
+.Murk {color: white; background:#4b4420; }
+
+/*BBCODE*/
+
+/* Add a dashed underline to acronyms.  
+span.acronym { 
+	border-bottom:1px dashed green; 
+} 
+span.acronym:hover { 
+	color: green; 
+	border-bottom:1px dashed lightgreen; 
+} */
+
+/* Make spoilers invisible, so that you need to select them with the mouse. */ 
+.bbcode_spoiler { 
+	background-color: black; 
+	color: black; 
+} 
+
+/* Align columns to the top, and add some space between them. */ 
+
+table.bbcode_columns { 
+	border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;
+} 
+table.bbcode_columns td.bbcode_column { 
+	padding: 0 1em; vertical-align: top; font-size:12px;
+} 
+table.bbcode_columns td.bbcode_firstcolumn { 
+	border-left: 0; 
+	padding-left: 0; 
+} 
+
+/* Wrap quotes in a big blue box. */ 
+div.bbcode_quote { 
+	border: 1px solid #874430; 
+	margin: 0.5em 0; 
+} 
+div.bbcode_quote_head { 
+	background-color: #874430; 
+	color: white; 
+	font-weight: bold; 
+	padding: 0.25em 0.5em; 
+} 
+div.bbcode_quote_head a:link { 
+	color: white; 
+} 
+div.bbcode_quote_head a:visited { 
+	color: white; 
+} 
+div.bbcode_quote_head a:hover { 
+	color: white; 
+	text-decoration: underline; 
+} 
+div.bbcode_quote_head a:active { 
+	color: white; 
+	text-decoration: underline; 
+}
+div.bbcode_quote_body { 
+	background-color: #f8f3d4; 
+	color: black; 
+	padding: 0.5em 1em; 
+} 
+
+/* Wrap code in a big blue box. */ 
+div.bbcode_code { 
+	border: 1px solid #874430; 
+	margin: 0.5em 0;
+	width:520px;
+	height:auto;
+	position:relative;
+	white-space:normal;
+} 
+div.bbcode_code_head { 
+	background-color: #874430; 
+	color: white; 
+	font-weight: bold; 
+	padding: 0.25em 0.5em;
+	position:relative; 
+} 
+div.bbcode_code_body { 
+	background-color: #f8f3d4; 
+	color: black; 
+	font: 10pt monospace; 
+	padding: 0.5em 1em;
+	position:relative;
+	height:auto;
+	overflow:auto;
+}
+
+/* Movable Boxes */
+
+ul.boxes {
+	font-size: 10px;
+	font-family: Verdana;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	width: 700px;
+}
+ul.boxes li {
+	position: relative;
+	float: left;
+	margin: 0px 0px 13px 13px;
+	width: 125px;
+	height: 185px;
+	border: 0px;
+	text-align: center;
+	color: #daa37c;
+	/*cursor:move;*/
+}
+
+ul.nomove {
+	font-family: Verdana;
+	font-size:10px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	width: 700px;
+	color: #daa37c;
+}
+ul.nomove li {
+	position: relative;
+	float: left;
+	margin: 0px 0px 13px 13px;
+	width: 125px;
+	height: 185px;
+	border: 0px;
+	text-align: center;
+	color: #daa37c;
+	padding:0px;
+}
+img.dragonthmb {
+	margin-top:0px;
+}
+img.hatchthmb {
+	margin-top:30px;
+}
+.lairbox {
+	position:relative;
+	padding:0px;
+	margin:0px;
+	width:125px; 
+	height:185px;
+	border: 1px solid #9f9a8f /*#352118*/;
+	text-align: center;
+	background-color:#dedacf;
+	-moz-border-radius:12px;
+	-khtml-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}
+
+.dragoncard {
+	position:relative;
+	padding:0px;
+	margin:0px;
+	width:125px; 
+	height:185px;
+	border: 1px solid #9f9a8f /*#352118*/;
+	text-align: center;
+	background-color:#dedacf;
+	-moz-border-radius:12px;
+	-khtml-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+	overflow:hidden;
+}
+
+.lairtitle {
+	text-align:center;
+	width:100px;
+	height:20px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	background-color:#76240f;
+	color:#eadc95;
+	border: 1px solid #352118;
+	font-size:10px;
+	font-weight:bold;
+	-moz-border-radius:12px;
+	-khtml-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}
+.breedbox {
+	position:relative;
+	padding:0px;
+	margin:0px;
+	width:125px; 
+	height:185px;
+	border: 1px solid #352118;
+	text-align: center;
+	background-color:#dedacf;
+	-moz-border-radius:12px;
+	-khtml-border-radius:12px;
+	-webkit-border-radius:12px;
+	 border-radius:12px;
+}
+.nesttitle {
+	text-align:center;
+	width:200px;
+	height:20px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	background-color:#76240f;
+	color:#eadc95;
+	border: 1px solid #352118;
+	font-size:12px;
+	font-weight:bold;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	 border-radius:6px;
+}
+.nestbox {
+	position:relative;
+	padding:0px;
+	margin:0px;
+	width:360px; 
+	height:410px;
+	border: 1px solid #352118;
+	text-align: center;
+	background-color:#dedacf;
+	-moz-border-radius:12px;
+	-khtml-border-radius:12px;
+	-webkit-border-radius:12px;
+	 border-radius:12px;
+}
+
+.attachment {
+	position:relative;
+	padding:5px;
+	margin:5px;
+	margin-left:0px;
+	width:220px; 
+	border: 1px solid #B2B2B2;
+	text-align: center;
+	background-color:#eeeeee;
+	-moz-border-radius:12px;
+	-khtml-border-radius:12px;
+	-webkit-border-radius:12px;
+	 border-radius:12px;
+}
+
+/* global */
+div.ui-cluetip {
+  font-size: 11px;
+}
+.ui-cluetip-header,
+.ui-cluetip-content {
+  padding: .2em;
+}
+.ui-cluetip-header {
+  font-size: 1em;
+  margin: 0;
+  overflow: hidden;
+}
+
+.cluetip-title .cluetip-close {
+  float: right;
+  position: relative;
+}
+.cluetip-close img {
+  border: 0;
+}
+
+#cluetip-waitimage {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  background-image: url(../images/layout/loading.gif);
+}
+.cluetip-arrows {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -11px;
+  width: 11px;
+  height: 22px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  border-width: 0;
+}
+.cluetip-extra {
+  display: none;
+}
+
+/***************************************
+   =cluetipClass: 'default'
+-------------------------------------- */
+
+.cluetip-default {
+  background-color: #dcd6c8;
+}
+.cluetip-default .ui-cluetip-header {
+  background-color: #dcd6c8;
+}
+
+
+
+.cluetip-default #cluetip-outer {
+  position: relative;
+  margin: 0;
+  background-color: #d9d9c2;
+}
+.cluetip-default h3#cluetip-title {
+  margin: 0 0 5px;
+  padding: 8px 10px 4px;
+  font-size: 1.1em;
+  font-weight: normal;
+  background-color: #87876a;
+  color: #fff;
+}
+.cluetip-default #cluetip-title a {
+  color: #d9d9c2;
+  font-size: 0.95em;
+}
+
+.cluetip-default div#cluetip-close {
+  text-align: right;
+  margin: 0 5px 5px;
+  color: #900;
+}
+
+.cluetip-default #cluetip-inner {
+  padding: 3px;
+}
+/* default arrows */
+div.cluetip-default .cluetip-arrows {
+  border-width: 0;
+  background: transparent none;
+}
+div.clue-right-default .cluetip-arrows {
+  background-image: url(images/darrowleft.gif);
+}
+div.clue-left-default .cluetip-arrows {
+  background-image: url(images/darrowright.gif);
+  left: 100%;
+  margin-right: -11px;
+}
+div.clue-top-default .cluetip-arrows {
+  background-image: url(images/darrowdown.gif);
+  top: 100%;
+  left: 50%;
+  margin-left: -11px;
+  width: 22px;
+  height: 11px;
+}
+div.clue-bottom-default .cluetip-arrows {
+  background-image: url(images/darrowup.gif);
+  top: -11px;
+  left: 50%;
+  margin-left: -11px;
+  width: 22px;
+  height: 11px;
+}
+
+/***************************************
+   =cluetipClass: 'jtip'
+-------------------------------------- */
+.cluetip-jtip {
+  background-color: #dcd6c8;
+}
+.cluetip-jtip .cluetip-outer {
+  border: 2px solid #ccc;
+  position: relative;
+}
+
+.cluetip-jtip .cluetip-inner {
+  padding: 5px;
+  display: inline-block;
+}
+.cluetip-jtip div.cluetip-close {
+  text-align: right;
+  margin: 0 5px 0;
+  color: #900;
+}
+
+.cluetip-jtip .ui-cluetip-header {
+  background-color: #dcd6c8;
+  padding: 6px;
+/*  margin-bottom: 1em;*/
+}
+
+/* jtip arrows */
+div.cluetip-jtip .cluetip-arrows {
+  border-width: 0;
+  background: transparent none;
+}
+div.clue-right-jtip .cluetip-arrows {
+  background-image: url(images/arrowleft.gif);
+}
+div.clue-left-jtip .cluetip-arrows {
+  background-image: url(images/arrowright.gif);
+  left: 100%;
+  margin-right: -11px;
+}
+div.clue-top-jtip .cluetip-arrows {
+  background-image: url(images/arrowdown.gif);
+  top: 100%;
+  left: 50%;
+  width: 22px;
+  height: 11px;
+  margin-left: -11px;
+}
+div.clue-bottom-jtip .cluetip-arrows {
+  background-image: url(images/arrowup.gif);
+  top: -11px;
+  left: 50%;
+  width: 22px;
+  height: 11px;
+  margin-left: -11px;
+}
+
+/***************************************
+   =cluetipClass: 'rounded'
+-------------------------------------- */
+.cluetip-rounded {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: 1px solid #000;
+}
+.cluetip-rounded  .cluetip-arrows {
+  border-color: #000;
+}
+
+/* need to be more specific here to override ThemeRoller defaults */
+div.cluetip-rounded  .cluetip-arrows {
+  font-size: 0;
+  line-height: 0%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  background: transparent none;
+}
+div.clue-right-rounded .cluetip-arrows {
+  border-width: 11px 11px 11px 0;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+div.clue-left-rounded .cluetip-arrows {
+  left: 100%;
+  margin-right: -11px;
+  border-width: 11px 0 11px 11px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+
+}
+div.clue-top-rounded .cluetip-arrows {
+  top: 100%;
+  left: 50%;
+  border-width: 11px 11px 0 11px;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+}
+.clue-bottom-rounded .cluetip-arrows {
+  top: -11px;
+  left: 50%;
+  border-width: 0 11px 11px 11px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+
+}
+/* stupid IE6 HasLayout hack */
+.cluetip-rounded .cluetip-title,
+.cluetip-rounded .cluetip-inner {
+  zoom: 1;
+}
+
+
+/* Movable Boxes */
+
+ul.itemlist {
+	font-size: 12px;
+	font-family: Verdana;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	width: 300px;
+}
+ul.itemlist li {
+	display:inline-block;
+	margin:0px;
+	padding:0px;
+	width: 300px;
+	height: 34px;
+	text-align: center;
+	color: #000;
+	cursor:move;
+}
+
+ul.itemnomove {
+	font-family: Verdana;
+	font-size:12px;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	width: 300px;
+	color: #000;
+}
+ul.itemnomove li {
+	display:inline-block;
+	margin: 0px 0px 0px 0px;
+	width: 300px;
+	height: 34px;
+	border: 0px;
+	text-align: center;
+	color: #000;
+	padding:0px;
+}
+
+.itembox {
+	display:inline-block;
+	padding:0px;
+	margin:0px;
+	width:300px; 
+	height:25px;
+	text-align: left;
+}
+
+.navbar {
+	font-size:12px;
+	display:block;
+	margin-left:26px;
+	color:#731d08;
+	font-weight:bold;
+}
+
+#buttonprev {
+	position:absolute;
+	top:120px;
+	left:0px;
+	opacity:0;
+	-webkit-transition:0.3s all linear;
+	-moz-transition:0.3s all linear;
+	z-index:1;
+}
+
+#buttonnext {
+	position:absolute;
+	top:120px;
+	left:307px;
+	opacity:0;
+	-webkit-transition:0.3s all linear;
+	-moz-transition:0.3s all linear;
+	z-index:1;
+}
+
+#dragbuttons {
+	width:350px;
+	height:350px;
+}
+
+#dragbuttons:hover #buttonprev {
+	opacity:1;
+}
+
+#dragbuttons:hover #buttonnext {
+	opacity:1;
+}
+
+/* Some shit about glowing */
+.navbar-glow-hover{
+color: #731d08;
+}
+
+/*Dominance Rewards Glow*/
+.domglow {
+	font-family: Verdana;
+	color: #FFF;
+	text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+}
+
+.navbar-glow-hover:hover{
+text-shadow: 0 0 5px #fff, 0 0 5px #ffe590, 0 0 5px #fff;
+}
+
+.bonus_gems{
+	text-align: center;
+	padding-top: 5px;
+	width:59px; 
+	height:56px; 
+	background-image: url(/images/layout/tag_bonusgems.png);
+	font-weight: bolder;
+	color: #FFF;
+	font-size: 13px;
+	text-shadow: 0 0 5px #000, 0 0 5px #000, 0 0 5px #000;
+}
+
+.common-emoji {
+  vertical-align: middle;
+}
+
+#editor-emoji-dialog {
+  display: none;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-list {
+  margin: 10px 0 0 0;
+  padding: 0;
+  max-height: 465px;
+  list-style: none;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-list:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-item {
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid #eee;
+  list-style: none;
+  cursor: pointer;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-item[data-size="1"] {
+  width: 20px;
+  height: 20px;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-item[data-size="2"] {
+  width: 40px;
+  height: 40px;
+  margin: 2px 2px 2px 3px;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-item:hover {
+  background: #eee;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-item[data-size="1"] .editor-emoji-dialog-emoji-image-large {
+  display: none;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-emoji-item[data-size="2"] .editor-emoji-dialog-emoji-image-small {
+  display: none;
+}
+
+#editor-emoji-dialog .editor-emoji-dialog-filter {
+  display: block;
+  margin: 15px 5px;
+  padding: 10px;
+  border: 1px solid #e1ddd6;
+  background: #f8f7f6;
+  text-align: center;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* UI Buttons */
+.common-ui-button,
+.common-ui-button-disabled {
+  position: relative;
+  display: inline-block;
+  padding: 15px 25px;
+  text-align: center;
+  border: 2px solid #858179;
+  background: -moz-linear-gradient(top, #ebe7e4 0%, #e0dbcf 100%);
+  background: -webkit-linear-gradient(top, #ebe7e4 0%, #e0dbcf 100%);
+  background: linear-gradient(to bottom, #ebe7e4 0%, #e0dbcf 100%);
+  -moz-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.common-ui-button:after,
+.common-ui-button-disabled:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 2px solid #fff;
+  -moz-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+a.common-ui-button img {
+  border: none;
+}
+
+.common-ui-button-disabled {
+  border-color: #643734;
+  background: -moz-linear-gradient(top, #865857 0%, #825450 100%);
+  background: -webkit-linear-gradient(top, #865857 0%, #825450 100%);
+  background: linear-gradient(to bottom, #865857 0%, #825450 100%);
+  cursor: default;
+}
+
+.common-ui-button-disabled:after {
+  border-color: #8c6060;
+}
+
+/* Pagination */
+.common-pagination {
+  margin: 5px 0;
+}
+
+.common-pagination:after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+
+.common-pagination-pages {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 12px
+}
+
+.common-pagination .common-pagination-pages:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.common-pagination .common-pagination-page {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 2px solid #ecebe9;
+  background: #f9f8f7;
+  color: #9f9a8f;
+  cursor: pointer;
+}
+
+.common-pagination .common-pagination-page:hover {
+  border: 2px solid #9f9a8f;
+  color: #000;
+}
+
+.common-pagination .common-pagination-page-active,
+.common-pagination .common-pagination-page-active:hover {
+  font-weight: bold;
+  color: #731d08;
+  border: 2px solid #9f9a8f;
+  background: #fff;
+}
+
+.common-pagination .common-pagination-page-space,
+.common-pagination .common-pagination-page-space:hover {
+  border: 2px solid #ecebe9;
+  color: #9f9a8f;
+  cursor: auto;
+}
+
+#hoard-pagination .common-pagination-page-space:hover,
+#vault-pagination .common-pagination-page-space:hover {
+  cursor: pointer;
+  border: 2px solid #9f9a8f;
+  color: #000;
+}
+
+.common-pagination .common-pagination-page.common-pagination-show-all {
+  width: 70px;
+  text-align: center;
+}
+
+.common-pagination .common-pagination-arrow {
+  display: block;
+  padding: 5px 25px;
+}
+
+.common-pagination .common-pagination-arrow-previous {
+  float: left;
+}
+
+.common-pagination .common-pagination-arrow-next {
+  float: right;
+}
+
+
+
+
+
+.ways_button{
+  position: fixed; 
+  width: 120px; 
+  height: 141px; 
+  left: 50%; 
+  margin-left: 468px; 
+  bottom: 0px;
+  background-image: url(/images/layout/waystone/waystone.png);
+    background-repeat: no-repeat;
+    background-position: top;
+}
+.ways_button:hover{
+  background-position: bottom;
+}
+
+@media screen and (max-width: 1024px){
+  .ways_button {
+    position: relative;
+    margin: 0 auto;
+    left: 0;
+    display: block;
+  }
+}
+
+.gamedb-bbcode {
+  padding-right: 3px;
+  color: #731d08 !important;
+  font-weight: bold;
+}
+
+.gamedb-bbcode:hover {
+  background-color: #fff;
+  box-shadow: 0 0 5px #888888;
+}
+
+.gamedb-bbcode-icon {
+  width: 15px;
+  height: 15px;
+  vertical-align: middle;
+}
+
+#bottom-banner{
+  min-width:728px;
+  max-width: 970px;
+  min-height:90px;
+  max-height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  /*background-color:#731d08;*/
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+#bottom-banner-center{
+  min-width:728px;
+  max-width: 970px;
+  min-height: 90px;
+  max-height: 250px;
+  overflow:hidden;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

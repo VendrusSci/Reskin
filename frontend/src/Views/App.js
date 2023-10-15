@@ -8,6 +8,7 @@ import { ScenePreview } from './Scene Preview/ScenePreview.js';
 import { Navbar } from './Utils/Navbar.js'
 import { About } from './About.js';
 import './CSS/App.css';
+import { VistaPreview } from './Vista Preview/VistaPreview.js';
 
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/scenes" element={
             <ScenePreview/>}>
+          </Route>
+          <Route path="/vistas" element={
+            <VistaPreview/>}>
           </Route>
           <Route path="/about" element={
             <About/>}>

@@ -11,6 +11,10 @@ export const menuItems = [
                 link:    '/scenes'
             },
             {
+                title:  'Vista Preview',
+                link:    '/vistas'
+            },
+            {
                 title:  'Self-Service Skin Preview',
                 link:    '/selfservice'
             },

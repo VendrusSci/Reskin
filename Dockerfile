@@ -21,6 +21,7 @@ RUN dotnet publish -c Release -o out
 
 RUN mv ./backend/Bases out/Bases
 RUN mv ./backend/Scenes out/Scenes
+RUN mv ./backend/Vistas out/Vistas
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 as final_image
 COPY --from=backend_build /app/out /skinchecker
