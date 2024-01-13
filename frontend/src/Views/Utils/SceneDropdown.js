@@ -35,10 +35,13 @@ export function SceneDropdown(props){
                 <option value="39684">Arena</option>
                 <option value="39686">Blooming Grove</option>
                 <option value="52050">Crystal Pools</option>
+                <option value="54179">Forbidden Portal</option>
+                <option value="54182">Ghostlight Ruins</option>
                 <option value="37028">Golem Workshop</option>
                 <option value="52051">Harpy's Roost</option>
                 <option value="44049">Kelp Beds</option>
                 <option value="41976">Mire</option>
+                <option value="54178">Redrock Cove</option>
                 <option value="39685">Sandswept Delta</option>
                 <option value="52049">Scorched Forest</option>
                 <option value="39073">Training Fields</option>
@@ -50,6 +53,7 @@ export function SceneDropdown(props){
                 <option value="39745">8th Anniversary</option>
                 <option value="40841">Armory</option>
                 <option value="40824">Battlefield</option>
+                <option value="53737">Cabinet of Curiosities</option>
                 <option value="49890">Deep Space</option>
                 <option value="41418">Drakeharvest</option>
                 <option value="37359">Dusty Attic</option>
@@ -78,15 +82,26 @@ export function SceneDropdown(props){
                 <option value="50697">Crystal Shop</option>
             </optgroup>
 
+            <optgroup label="Seasonal">
+                <option value="47090">Autumn</option>
+                <option value="52963">Autumn Storm</option>
+                <option value="48995">Spring</option>
+                <option value="52965">Spring Day</option>
+                <option value="45956">Summer</option>
+                <option value="52966">Summer Sunset</option>
+                <option value="48233">Winter</option>
+                <option value="52964">Winter Night</option>
+            </optgroup>
+
             <optgroup label="Other">
                 <option value="44082">Ancient Harpy Canyon</option>
-                <option value="47090">Autumn</option>
                 <option value="34837">Autumn Clearing</option>
                 <option value="45486">Cartographer's Office</option>
                 <option value="47663">Elder Sea</option>
                 <option value="38215">Flowering Wasteland</option>
                 <option value="34838">Foxfire Grove</option>
                 <option value="34839">Frostbite Falls</option>
+                <option value="53082">Frozen Tunnel</option>
                 <option value="43382">Garden Arches</option>
                 <option value="48120">Harpy City</option>
                 <option value="38283">Lovebird Landscape</option>
@@ -98,14 +113,12 @@ export function SceneDropdown(props){
                 <option value="34844">Royal Chambers</option>
                 <option value="37865">Serpent Shrine</option>
                 <option value="34845">Shoreline Serenity</option>
-                <option value="48995">Spring</option>
                 <option value="34846">Starksand Dunes</option>
-                <option value="45956">Summer</option>
                 <option value="39895">Sunparched Prowl</option>
                 <option value="42764">Thunder Lizards</option>
                 <option value="34847">Titan's Fall</option>
                 <option value="34840">Webfiend Cave</option>
-                <option value="48233">Winter</option>
+                
             </optgroup>
         </select>
     );

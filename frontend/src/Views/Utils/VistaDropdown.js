@@ -95,6 +95,7 @@ export function VistaDropdown(props){
                 <option value="176">Springswarm</option>
                 <option value="188">Sunparched Prowl</option>
                 <option value="192">Castle Siege</option>
+                <option value="196">Cursed Dice</option>
             </optgroup>
 
             <optgroup label="Grand Exchange">
@@ -153,6 +154,7 @@ export function VistaDropdown(props){
                 <option value="157">Undertide Dragons</option>
                 <option value="177">Aether Dragons</option>
                 <option value="189">Sandsurge Dragons</option>
+                <option value="195">Auraboa Dragons</option>
             </optgroup>
 
             <optgroup label="Marketplace (Treasure)">
@@ -180,6 +182,7 @@ export function VistaDropdown(props){
                 <option value="91">Night Sky</option>
                 <option value="92">Solar</option>
                 <option value="137">Corgi Sploot</option>
+                <option value="197">Shoreline Serenity</option>
             </optgroup>
 
             <optgroup label="Contest Reward">
@@ -207,6 +210,8 @@ export function VistaDropdown(props){
                 <option value="151">Ancient Aerie</option>
                 <option value="156">Deepsea Dive</option>
                 <option value="191">Chess</option>
+                <option value="194">Frozen Age</option>
+                <option value="198">Pottery</option>
             </optgroup>
 
             <optgroup label="Other">
