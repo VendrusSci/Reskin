@@ -96,6 +96,9 @@ export function VistaDropdown(props){
                 <option value="188">Sunparched Prowl</option>
                 <option value="192">Castle Siege</option>
                 <option value="196">Cursed Dice</option>
+                <option value="199">Marva's Magic</option>
+                <option value="200">The Finest Treasure</option>
+                <option value="201">An Eye For Buttons</option>
             </optgroup>
 
             <optgroup label="Grand Exchange">
@@ -155,6 +158,7 @@ export function VistaDropdown(props){
                 <option value="177">Aether Dragons</option>
                 <option value="189">Sandsurge Dragons</option>
                 <option value="195">Auraboa Dragons</option>
+                <option value="202">Dusthide Dragons</option>
             </optgroup>
 
             <optgroup label="Marketplace (Treasure)">

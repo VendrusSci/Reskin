@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4BF67E67-2736-4074-8930-C86702142118}|backend\\backend.csproj|c:\\users\\omchu\\documents\\code\\fr tools\\reskin\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4BF67E67-2736-4074-8930-C86702142118}|backend\\backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BF67E67-2736-4074-8930-C86702142118}|backend\\backend.csproj|c:\\users\\omchu\\documents\\code\\fr tools\\reskin\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BF67E67-2736-4074-8930-C86702142118}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BF67E67-2736-4074-8930-C86702142118}|backend\\backend.csproj|c:\\users\\omchu\\documents\\code\\fr tools\\reskin\\backend\\backend\\controllers\\skincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BF67E67-2736-4074-8930-C86702142118}|backend\\backend.csproj|solutionrelative:backend\\controllers\\skincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BF5EA58-06EC-4F1E-874C-C83794D2885B}|skindata\\SkinData.csproj|c:\\users\\omchu\\documents\\code\\fr tools\\reskin\\backend\\skindata\\ventoolscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BF5EA58-06EC-4F1E-874C-C83794D2885B}|skindata\\SkinData.csproj|solutionrelative:skindata\\ventoolscontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\backend\\appsettings.json",
+              "RelativeDocumentMoniker": "backend\\appsettings.json",
+              "ToolTip": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\backend\\appsettings.json",
+              "RelativeToolTip": "backend\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-10T15:36:28.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "backend\\Program.cs",
+              "ToolTip": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\backend\\Program.cs",
+              "RelativeToolTip": "backend\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T15:26:34.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SkinController.cs",
+              "DocumentMoniker": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\backend\\Controllers\\SkinController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\SkinController.cs",
+              "ToolTip": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\backend\\Controllers\\SkinController.cs",
+              "RelativeToolTip": "backend\\Controllers\\SkinController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGIAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T14:38:00.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VenToolsContext.cs",
+              "DocumentMoniker": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\skindata\\VenToolsContext.cs",
+              "RelativeDocumentMoniker": "skindata\\VenToolsContext.cs",
+              "ToolTip": "C:\\Users\\omchu\\Documents\\Code\\FR Tools\\Reskin\\backend\\skindata\\VenToolsContext.cs",
+              "RelativeToolTip": "skindata\\VenToolsContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-10T12:30:43.695Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -36,6 +36,7 @@ export function SceneDropdown(props){
                 <option value="39686">Blooming Grove</option>
                 <option value="52050">Crystal Pools</option>
                 <option value="54179">Forbidden Portal</option>
+                <option value="55818">Forgotten Cave</option>
                 <option value="54182">Ghostlight Ruins</option>
                 <option value="37028">Golem Workshop</option>
                 <option value="52051">Harpy's Roost</option>
@@ -43,6 +44,7 @@ export function SceneDropdown(props){
                 <option value="41976">Mire</option>
                 <option value="54178">Redrock Cove</option>
                 <option value="39685">Sandswept Delta</option>
+                <option value="51937">Silk-Strewn Wreckage</option>
                 <option value="52049">Scorched Forest</option>
                 <option value="39073">Training Fields</option>
                 <option value="39683">Waterway</option>
@@ -68,6 +70,7 @@ export function SceneDropdown(props){
                 <option value="34848">Remembrance</option>
                 <option value="43685">Springswarm</option>
                 <option value="37361">Strange Chests</option>
+                <option value="54812">Sweetheart Basket</option>
                 <option value="40825">Target Practice</option>
                 <option value="35959">Voyage of the Tenacity</option>
                 <option value="48174">Witch's Kitchen</option>

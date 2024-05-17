@@ -22,17 +22,18 @@ export function SkinSelfServiceDisplay(props){
         
         if(props.skinFile){
             skinUrl = URL.createObjectURL(props.skinFile);
-            mergeImages([dragonUrl, skinUrl])
-                .then((img) => {
-                  setSkinImg(img);
-                  if(!props.dragonFile && props.sceneFile){
-                    toast("Skin selected without dragon - background applied")
-                  }
-                });
         }
         else{
-            setSkinImg('/nodragon.png');
+            skinUrl = '/nodragon.png';
         }
+
+        mergeImages([dragonUrl, skinUrl])
+            .then((img) => {
+              setSkinImg(img);
+              if(!props.dragonFile && props.skinFile){
+                toast("Skin selected without dragon - background applied")
+              }
+            });
 
         // free memory when ever this component is unmounted
         return () => {
