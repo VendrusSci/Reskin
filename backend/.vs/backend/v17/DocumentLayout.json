@@ -26,8 +26,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -51,8 +55,7 @@
               "RelativeToolTip": "backend\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T15:26:34.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T15:26:34.058Z"
             },
             {
               "$type": "Document",
@@ -64,12 +67,7 @@
               "RelativeToolTip": "backend\\Controllers\\SkinController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAGIAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T14:38:00.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+              "WhenOpened": "2024-05-10T14:38:00.933Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "skindata\\VenToolsContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T12:30:43.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-10T12:30:43.695Z"
             }
           ]
         }

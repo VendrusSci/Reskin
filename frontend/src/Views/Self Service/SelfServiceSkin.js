@@ -9,6 +9,7 @@ export function SelfServiceSkin(){
     const [dragonFile, setDragonFile] = useState("");
     const [sceneFile, setSceneFile] = useState("");
     const [isOpaque, setIsOpaque] = useState(true);
+    const [skinUrl, setSkinUrl] = useState('');
 
     return(
         <div>
@@ -22,6 +23,14 @@ export function SelfServiceSkin(){
                 <SkinSelfServiceDisplay skinFile={skinFile} dragonFile={dragonFile} sceneFile={sceneFile}
                                     isOpaque={isOpaque}/>
             </div>
+            {/* <div>
+                <div className='App-body'>
+                    <label className='Skin-label'>Get transparent image url for skin id: </label>
+                    <input onChange={(e) => setSkinUrl( 'https://www1.flightrising.com/static/cms/skins/art/' + e.target.value + '.png')}></input>
+                </div>
+                <a href={skinUrl} target='_blank' rel='noreferrer' className='Skin-clickable-link' visited='cadetblue'>{skinUrl}</a>
+            </div> */}
+            
         </div>
     );
 }
