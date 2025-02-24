@@ -58,6 +58,7 @@ export function VistaDropdown(props){
                 <option value="146">Mire II</option>
                 <option value="193">Silk-Strewn Wreckage</option>
                 <option value="190">Talonok</option>
+                <option value="206">The Boneyard</option>
             </optgroup>
 
             <optgroup label="Recurring Event">
@@ -99,6 +100,8 @@ export function VistaDropdown(props){
                 <option value="199">Marva's Magic</option>
                 <option value="200">The Finest Treasure</option>
                 <option value="201">An Eye For Buttons</option>
+                <option value="209">Fidget Toy</option>
+                <option value="210">Chocolates</option>
             </optgroup>
 
             <optgroup label="Grand Exchange">
@@ -159,6 +162,8 @@ export function VistaDropdown(props){
                 <option value="189">Sandsurge Dragons</option>
                 <option value="195">Auraboa Dragons</option>
                 <option value="202">Dusthide Dragons</option>
+                <option value="204">Fathom Dragons</option>
+                <option value="207">Everlux Dragons</option>
             </optgroup>
 
             <optgroup label="Marketplace (Treasure)">
@@ -216,6 +221,8 @@ export function VistaDropdown(props){
                 <option value="191">Chess</option>
                 <option value="194">Frozen Age</option>
                 <option value="198">Pottery</option>
+                <option value="205">Monitored</option>
+                <option value="208">Fossilized Flora</option>
             </optgroup>
 
             <optgroup label="Other">
@@ -223,6 +230,7 @@ export function VistaDropdown(props){
                 <option value="152">Cartographer's Office</option>
                 <option value="120">Sticker Star</option>
                 <option value="187">Plush Collection</option>
+                <option value="203">Unfathomable Odyssey</option>
             </optgroup>
 
             <optgroup label="Untradeable">
