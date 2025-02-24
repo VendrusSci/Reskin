@@ -8,7 +8,9 @@ export function BreedDropdown(props){
             <option value="14">Bogsneak</option>
             <option value="12">Coatl</option>
             <option value="25">Dusthide</option>
+            <option value="26">Everlux</option>
             <option value="1">Fae</option>
+            <option value="16">Fathom</option>
             <option value="17">Gaoler</option>
             <option value="2">Guardian</option>
             <option value="8">Imperial</option>
