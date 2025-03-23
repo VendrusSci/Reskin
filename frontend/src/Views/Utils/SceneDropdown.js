@@ -60,6 +60,7 @@ export function SceneDropdown(props){
                 <option value="40841">Armory</option>
                 <option value="40824">Battlefield</option>
                 <option value="53737">Cabinet of Curiosities</option>
+                <option value="51585">Castle Siege</option>
                 <option value="49890">Deep Space</option>
                 <option value="41418">Drakeharvest</option>
                 <option value="37359">Dusty Attic</option>
@@ -73,11 +74,13 @@ export function SceneDropdown(props){
                 <option value="47042">Port Town</option>
                 <option value="34848">Remembrance</option>
                 <option value="43685">Springswarm</option>
+                <option value="58758">Stockade</option>
                 <option value="37361">Strange Chests</option>
                 <option value="58758">Stockade</option>
                 <option value="54812">Sweetheart Basket</option>
                 <option value="40825">Target Practice</option>
-                <option value="57218">Unfathomable Odyssey</option>
+                <option value="52287">Tropical Cove</option>
+                <option value="57218">Unfathomable Odeyssey</option>
                 <option value="35959">Voyage of the Tenacity</option>
                 <option value="48174">Witch's Kitchen</option>
             </optgroup>

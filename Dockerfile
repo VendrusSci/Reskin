@@ -1,4 +1,4 @@
-FROM node:14.15.1-alpine as frontend_build
+FROM node:20.14.0-alpine as frontend_build
 WORKDIR /app
 COPY /frontend/package.json package.json
 COPY /frontend/package-lock.json package-lock.json
